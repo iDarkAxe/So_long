@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/11 12:15:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 21:49:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_mlx
 	void *win_settings_ptr;
 } t_mlx;
 
-int		so_long(void);
+int		so_long(int argc, char **argv);
 
 void	*ft_settings(t_mlx *mlx);
 

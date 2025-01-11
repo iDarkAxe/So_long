@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:33:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/10 17:03:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 21:49:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	if (so_long() != 0)
+	if (so_long(argc, argv) != 0)
 		return (1);
 	return (0);
 }
