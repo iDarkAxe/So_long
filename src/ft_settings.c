@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/10 17:15:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 12:52:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,49 +19,93 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int handle_mouse_motion_settings(int x, int y, void *param);
+
+static void	ft_draw_all_circle(void *mlx_ptr, void *win_settings_ptr)
+{
+	ft_draw_circle(mlx_ptr, win_settings_ptr, (t_circle){35, 140, 20,
+		0xFFAA00});
+	ft_draw_circle(mlx_ptr, win_settings_ptr, (t_circle){35, 210, 20,
+		0xFFAA00});
+	ft_draw_circle(mlx_ptr, win_settings_ptr, (t_circle){35, 280, 20,
+		0xFFAA00});
+	ft_draw_circle(mlx_ptr, win_settings_ptr, (t_circle){35, 360, 20,
+		0xFFAA00});
+}
+
+int	handle_mouse_motion_settings(int x, int y, void *param)
+{
+	printf("Pos settings: x,y(%d,%d)\n", x, y);
+	if (x > 15 && x < 55 && y > 120 && y < 160)
+		ft_draw_circle(((t_mlx *)param)->mlx_ptr,
+			((t_mlx *)param)->win_settings_ptr, (t_circle){35, 140, 20,
+			0x00FF00});
+	else if (x > 15 && x < 55 && y > 190 && y < 230)
+		ft_draw_circle(((t_mlx *)param)->mlx_ptr,
+			((t_mlx *)param)->win_settings_ptr, (t_circle){35, 210, 20,
+			0x00FF00});
+	else if (x > 15 && x < 55 && y > 260 && y < 300)
+		ft_draw_circle(((t_mlx *)param)->mlx_ptr,
+			((t_mlx *)param)->win_settings_ptr, (t_circle){35, 280, 20,
+			0x00FF00});
+	else if (x > 15 && x < 55 && y > 340 && y < 380)
+		ft_draw_circle(((t_mlx *)param)->mlx_ptr,
+			((t_mlx *)param)->win_settings_ptr, (t_circle){35, 360, 20,
+			0x00FF00});
+	else
+	{
+		ft_draw_all_circle(((t_mlx *)param)->mlx_ptr,
+			((t_mlx *)param)->win_settings_ptr);
+	}
+	return (0);
+}
+
 int	handle_keypress_settings(int keycode, void *param)
 {
 	(void)param;
 	printf("keycode: %d\n", keycode);
+	if (keycode == KEY_ESCAPE)
+		exit(0);
 	return (keycode);
 }
 
-void	*ft_settings(void *mlx_ptr)
+void	*ft_settings(t_mlx *mlx)
 {
 	int		img_width;
 	int		img_height;
 	void	*img_ptr;
-	void	*win_ptr;
 
-	img_ptr = mlx_xpm_file_to_image(mlx_ptr, "img/settings.xpm", &img_width,
-			&img_height);
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "Settings");
-	if (win_ptr == NULL)
+	img_ptr = mlx_xpm_file_to_image(mlx->mlx_ptr, "img/settings.xpm",
+			&img_width, &img_height);
+	mlx->win_settings_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "Settings");
+	if (mlx->win_settings_ptr == NULL)
 	{
-		free(mlx_ptr);
+		free(mlx->mlx_ptr);
 		return (NULL);
 	}
 	if (img_ptr == NULL)
 	{
-		free(mlx_ptr);
+		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 0, 0);
-	ft_draw_rectangle(mlx_ptr, win_ptr, \
-		(t_element){100, 100, 50, 50, 0xFFAA00});
-	mlx_hook(win_ptr, KeyPress, KeyPressMask, handle_keypress_settings, NULL);
-	mlx_hook(win_ptr, 17, 0, close_window, NULL);
-	return (win_ptr);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_settings_ptr, img_ptr, 0, 0);
+	ft_draw_all_circle(mlx->mlx_ptr, mlx->win_settings_ptr);
+	mlx_hook(mlx->win_settings_ptr, MotionNotify, PointerMotionMask,
+		handle_mouse_motion_settings, mlx);
+	mlx_hook(mlx->win_settings_ptr, KeyPress, KeyPressMask,
+		handle_keypress_settings, NULL);
+	mlx_hook(mlx->win_settings_ptr, 17, 0, close_window, NULL);
+	return (mlx->win_settings_ptr);
 }
 
-int	ft_screen_size(void *mlx_ptr)
-{
-	int	x;
-	int	y;
+// static int	ft_screen_size(void *mlx_ptr)
+// {
+// 	int	x;
+// 	int	y;
 
-	x = 0;
-	y = 0;
-	mlx_get_screen_size(mlx_ptr, &x, &y);
-	mlx_new_window(mlx_ptr, x, y, "So_long");
-	return (0);
-}
+// 	x = 0;
+// 	y = 0;
+// 	mlx_get_screen_size(mlx_ptr, &x, &y);
+// 	mlx_new_window(mlx_ptr, x, y, "So_long");
+// 	return (0);
+// }
