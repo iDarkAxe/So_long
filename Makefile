@@ -18,6 +18,8 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 # Source directories
 P_SRC = src/
 P_DRAW = draw/
+P_MAP_VERIF = map_verif/
+P_UTILS = utils/
 
 # Object directories
 P_OBJ = .obj/
@@ -46,6 +48,13 @@ SRC = \
 DRAW = \
 	ft_draw.c
 
+MAP_VERIF = \
+	ft_map_dimensions.c \
+	ft_map_fill.c
+
+UTILS = \
+	ft_map_utils.c
+
 LIBS = \
 	libmlx_Linux.a \
 	libso_long.a
@@ -57,7 +66,9 @@ LIBS = \
 #############################################################################################
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
-	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW))
+	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
+	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
+	$(addprefix $(P_SRC)$(P_UTILS), $(UTILS))
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

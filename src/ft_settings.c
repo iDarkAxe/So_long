@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/11 12:52:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 15:44:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int handle_mouse_motion_settings(int x, int y, void *param);
+int	handle_mouse_motion_settings(int x, int y, void *param);
 
 static void	ft_draw_all_circle(void *mlx_ptr, void *win_settings_ptr)
 {
@@ -60,7 +60,7 @@ int	handle_mouse_motion_settings(int x, int y, void *param)
 	return (0);
 }
 
-int	handle_keypress_settings(int keycode, void *param)
+static int	handle_keypress_settings(int keycode, void *param)
 {
 	(void)param;
 	printf("keycode: %d\n", keycode);

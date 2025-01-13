@@ -1,0 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_map_dimensions.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
+/*   Updated: 2025/01/13 16:46:23 by ppontet          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+#include <fcntl.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+// @TODO TO REMOVE
+#include <stdio.h>
+
+static void	update_line_info(t_map_size *map, char character)
+{
+	map->line_len++;
+	if (character == '\n')
+	{
+		if (map->count_line == 0)
+			map->prev_line_len = map->line_len;
+		else if (map->line_len != map->prev_line_len)
+			map->error_occured = 1;
+		map->line_len = 0;
+		map->count_line++;
+	}
+}
+
+t_map_size	dimensions_verif(char *map_name)
+{
+	char		character;
+	ssize_t		ret;
+	t_map_size	map;
+
+	map = (t_map_size){0, map_name, 0, 0, 0, 0};
+	if (map_name == NULL)
+		map.map_name = "./example.ber";
+	map.fd = open(map.map_name, O_RDONLY);
+	if (map.fd == -1)
+		map.error_occured = 2;
+	while (map.error_occured == 0)
+	{
+		ret = read(map.fd, &character, 1);
+		if (ret == -1 || (ret == 0 && map.line_len + 1 != map.prev_line_len))
+			map.error_occured = 1;
+		if (ret == 0)
+			break ;
+		printf("%c", character);
+		update_line_info(&map, character);
+	}
+	if (map.error_occured != 2)
+		close(map.fd);
+	return (map);
+}
+
+t_map	*check_borders(t_map_size map_size)
+{
+	int		i;
+	t_map	*map;
+
+	map = malloc(sizeof(t_map));
+	if (map_size.error_occured != 0 || fill_map(map_size, map) == NULL)
+		return (NULL);
+	map->error = 0;
+	i = 0;
+	while (i < map->width && map->error != -1)
+	{
+		if (map->map[0][i] != '1' || map->map[map->height][i] != '1')
+			map->error = -1;
+		i++;
+	}
+	i = 0;
+	while (i < map->height && map->error != -1)
+	{
+		if (map->map[i][0] != '1' || map->map[i][map->width - 1] != '1')
+			map->error = -1;
+		i++;
+	}
+	return (map);
+}
