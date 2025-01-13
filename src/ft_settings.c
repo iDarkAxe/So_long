@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 15:44:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 18:34:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "mlx.h"
 #include "so_long.h"
 #include <stddef.h>
+#include <unistd.h>
+#include "ft_print.h"
 
-//@TODO REMOVE
-#include <stdio.h>
 #include <stdlib.h>
 
 int	handle_mouse_motion_settings(int x, int y, void *param);
@@ -35,7 +35,7 @@ static void	ft_draw_all_circle(void *mlx_ptr, void *win_settings_ptr)
 
 int	handle_mouse_motion_settings(int x, int y, void *param)
 {
-	printf("Pos settings: x,y(%d,%d)\n", x, y);
+	ft_print_position(x, y);
 	if (x > 15 && x < 55 && y > 120 && y < 160)
 		ft_draw_circle(((t_mlx *)param)->mlx_ptr,
 			((t_mlx *)param)->win_settings_ptr, (t_circle){35, 140, 20,
@@ -63,7 +63,9 @@ int	handle_mouse_motion_settings(int x, int y, void *param)
 static int	handle_keypress_settings(int keycode, void *param)
 {
 	(void)param;
-	printf("keycode: %d\n", keycode);
+	write(1, "Key pressed: ", 13);
+	ft_putnbr_fd(keycode, 1);
+	write(1, "\n", 1);
 	if (keycode == KEY_ESCAPE)
 		exit(0);
 	return (keycode);

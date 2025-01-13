@@ -20,12 +20,14 @@ P_SRC = src/
 P_DRAW = draw/
 P_MAP_VERIF = map_verif/
 P_UTILS = utils/
+P_PRINT = print/
 
 # Object directories
 P_OBJ = .obj/
 
 # Header directories
 P_INC = inc/
+P_INC_MLX = inc_mlx/
 
 # Libraries directories
 P_LIB = lib/
@@ -37,7 +39,14 @@ P_LIB = lib/
 #############################################################################################
 # Headers
 INC = \
-	mlx.h
+	keys.h \
+	mlx.h \
+	so_long.h \
+	ft_print.h
+
+INC_MLX = \
+	mlx.h \
+	X.h
 
 # Source files
 SRC = \
@@ -54,6 +63,9 @@ MAP_VERIF = \
 
 UTILS = \
 	ft_map_utils.c
+
+PRINT = \
+	ft_print.c
 
 LIBS = \
 	libmlx_Linux.a \
@@ -78,7 +90,9 @@ P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS))
 DEPS = $(OBJS:%.o=%.d)
 
 # List of header files
-INCS = $(addprefix $(P_INC), $(INC))
+INCS = \
+	$(addprefix $(P_INC), $(INC)) \
+	$(addprefix $(P_INC_MLX), $(INC_MLX))
 
 #############################################################################################
 #                                                                                           #
@@ -90,7 +104,7 @@ all:
 
 # Create so_long executable
 $(NAME): $(P_OBJ)main.o $(P_LIB)libso_long.a $(P_LIB)libmlx_Linux.a
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $< -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $< -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
 
 # Create library used to create so_long executable
 $(P_LIB)libso_long.a: $(OBJS)
@@ -100,7 +114,7 @@ $(P_LIB)libso_long.a: $(OBJS)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -c $< -o $@
 
 # Create mlx library
 $(P_LIB)libmlx_Linux.a:

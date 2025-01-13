@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 16:50:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 18:33:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 #include "so_long.h"
 #include <stddef.h>
 #include <stdlib.h>
-
-// @TODO TO REMOVE
-#include <stdio.h>
+#include <unistd.h>
 
 int	so_long(int argc, char **argv)
 {
@@ -27,7 +25,7 @@ int	so_long(int argc, char **argv)
 	map = check_borders(dimensions_verif(argv[1]));
 	if (map == NULL || map->map == NULL || map->error == -1)
 	{
-		printf("Error at check_borders\n");
+		write(1, "Error at check_borders\n", 23);
 		return (-1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 16:46:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 18:35:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_map_size	dimensions_verif(char *map_name)
 			map.error_occured = 1;
 		if (ret == 0)
 			break ;
-		printf("%c", character);
+		write(1, &character, 1);
 		update_line_info(&map, character);
 	}
 	if (map.error_occured != 2)
@@ -62,7 +62,7 @@ t_map_size	dimensions_verif(char *map_name)
 
 t_map	*check_borders(t_map_size map_size)
 {
-	int		i;
+	size_t	i;
 	t_map	*map;
 
 	map = malloc(sizeof(t_map));
@@ -70,16 +70,13 @@ t_map	*check_borders(t_map_size map_size)
 		return (NULL);
 	map->error = 0;
 	i = 0;
-	while (i < map->width && map->error != -1)
+	while ((i < map->width || i < map->height) && map->error == -1)
 	{
-		if (map->map[0][i] != '1' || map->map[map->height][i] != '1')
+		if (i < map->width && (map->map[0][i] != '1' || map->map[map->height
+				- 1][i] != '1'))
 			map->error = -1;
-		i++;
-	}
-	i = 0;
-	while (i < map->height && map->error != -1)
-	{
-		if (map->map[i][0] != '1' || map->map[i][map->width - 1] != '1')
+		else if (i < map->height && (map->map[i][0] != '1'
+			|| map->map[i][map->width - 1] != '1'))
 			map->error = -1;
 		i++;
 	}

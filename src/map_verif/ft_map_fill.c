@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:45:04 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 16:45:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 18:03:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static t_map	*store_map(t_map *map, t_map_size map_size)
 {
-	int	i;
+	size_t	i;
 
 	map_size.fd = open(map_size.map_name, O_RDONLY);
 	if (map_size.fd == -1)
@@ -35,7 +35,7 @@ static t_map	*store_map(t_map *map, t_map_size map_size)
 
 t_map	*fill_map(t_map_size map_size, t_map *map)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (map == NULL)

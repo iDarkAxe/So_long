@@ -6,12 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 16:50:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 18:33:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# include <stddef.h>
+# include <unistd.h>
 
 typedef struct s_rectangle
 {
@@ -53,9 +56,9 @@ typedef struct s_map_size
 {
 	int		fd;
 	char	*map_name;
-	int		line_len;
-	int		prev_line_len;
-	int		count_line;
+	size_t	line_len;
+	size_t	prev_line_len;
+	size_t	count_line;
 	int		error_occured;
 }			t_map_size;
 
@@ -63,13 +66,16 @@ typedef struct s_map
 {
 	char	**map;
 	int		error;
-	int		width;
-	int		height;
+	size_t	width;
+	size_t	height;
 }			t_map;
 
 t_map_size	dimensions_verif(char *map_name);
 t_map		*check_borders(t_map_size map_size);
 t_map		*fill_map(t_map_size map_size, t_map *map);
-void		free_map(t_map *map, int len);
+void		free_map(t_map *map, size_t len);
+
+// PRINT functions
+ssize_t ft_print_position(int x, int y);
 
 #endif
