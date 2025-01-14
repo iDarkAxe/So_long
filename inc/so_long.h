@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 11:26:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 18:39:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,17 @@ typedef struct s_circle
 	int		color;
 }			t_circle;
 
+typedef struct s_img
+{
+	void	*ptr;
+	int		width;
+	int		height;
+}			t_img;
+
 void		ft_draw_rectangle(void *mlx_ptr, void *win_ptr,
 				t_rectangle element);
 void		ft_draw_circle(void *mlx_ptr, void *win_ptr, t_circle element);
+void		ft_draw_map(t_map *map, t_mlx *mlx);
 
 // HOOKS functions
 int			handle_keypress(int keycode, void *param);
@@ -84,5 +92,9 @@ ssize_t		ft_print_position(int x, int y);
 ssize_t		ft_print_keycode(int keycode);
 ssize_t		ft_print_color(int color);
 ssize_t		ft_print_map(t_map *map);
+
+// RANDOM functions
+int			ft_random(int fd);
+int			ft_random_init(void);
 
 #endif

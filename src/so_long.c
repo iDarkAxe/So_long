@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 10:27:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 18:40:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,34 @@
 #include "mlx.h"
 #include "so_long.h"
 #include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 int	so_long(int argc, char **argv)
 {
 	t_map	*map;
+	t_mlx	mlx;
 
 	(void)argc;
+	mlx.mlx_ptr = mlx_init();
+	if (mlx.mlx_ptr == NULL)
+		return (1);
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 64 * 34, 64 * 5, "So_long");
+	if (mlx.win_ptr == NULL)
+		return ((void)free(mlx.mlx_ptr), 1);
+	mlx_hook(mlx.win_ptr, 17, 0, close_window, NULL);
 	map = check_borders(dimensions_verif(argv[1]));
 	if (map == NULL || map->map == NULL || map->error == -1)
 	{
 		write(1, "Error at check_borders\n", 23);
 		return (-1);
 	}
-	ft_print_map(map);
+	ft_draw_map(map, &mlx);
+	mlx_loop(mlx.mlx_ptr);
+	mlx_destroy_window(mlx.mlx_ptr, mlx.win_ptr);
+	free(mlx.mlx_ptr);
+	free(mlx.win_ptr);
 	free_map(map, map->height);
 	return (0);
 }
