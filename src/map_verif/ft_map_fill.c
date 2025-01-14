@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:45:04 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:03:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 11:25:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@
 static t_map	*store_map(t_map *map, t_map_size map_size)
 {
 	size_t	i;
+	ssize_t	ret;
 
 	map_size.fd = open(map_size.map_name, O_RDONLY);
 	if (map_size.fd == -1)
 		return (NULL);
 	i = 0;
-	while (i <= map->height)
+	ret = 1;
+	while (i <= map->height && ret != 0)
 	{
-		if (read(map_size.fd, map->map[i], map_size.line_len + 1) == -1)
+		ret = read(map_size.fd, map->map[i], map_size.line_len + 1);
+		if (ret == -1)
 			return ((void)free_map(map, i), NULL);
 		i++;
 	}

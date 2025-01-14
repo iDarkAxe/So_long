@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:59:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:34:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 11:33:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 #include <unistd.h>
 #include "ft_print.h"
 
-//@TODO REMOVE
-#include "so_long.h"
-#include <stdio.h>
+//@TODO REMOVE OR FIND ALTERNATIVE ?
 #include <stdlib.h>
 
 int	close_window(void *param)
@@ -30,9 +28,7 @@ int	close_window(void *param)
 int	handle_keypress(int keycode, void *param)
 {
 	(void)param;
-	write(1, "Key pressed: ", 13);
-	ft_putnbr_fd(keycode, 1);
-	write(1, "\n", 1);
+	ft_print_keycode(keycode);
 	if (keycode == 53)
 		exit(0);
 	if (keycode == KEY_ESCAPE)

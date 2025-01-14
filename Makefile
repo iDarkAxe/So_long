@@ -65,7 +65,8 @@ UTILS = \
 	ft_map_utils.c
 
 PRINT = \
-	ft_print.c
+	ft_print.c \
+	ft_print_special.c
 
 LIBS = \
 	libmlx_Linux.a \
@@ -80,7 +81,8 @@ SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
-	$(addprefix $(P_SRC)$(P_UTILS), $(UTILS))
+	$(addprefix $(P_SRC)$(P_UTILS), $(UTILS)) \
+	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

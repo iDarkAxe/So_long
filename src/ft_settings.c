@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:34:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 10:15:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ int	handle_mouse_motion_settings(int x, int y, void *param)
 static int	handle_keypress_settings(int keycode, void *param)
 {
 	(void)param;
-	write(1, "Key pressed: ", 13);
-	ft_putnbr_fd(keycode, 1);
-	write(1, "\n", 1);
+	ft_print_keycode(keycode);
 	if (keycode == KEY_ESCAPE)
 		exit(0);
 	return (keycode);

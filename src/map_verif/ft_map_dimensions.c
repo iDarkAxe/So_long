@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:35:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 11:32:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-// @TODO TO REMOVE
-#include <stdio.h>
 
 static void	update_line_info(t_map_size *map, char character)
 {
@@ -52,7 +49,6 @@ t_map_size	dimensions_verif(char *map_name)
 			map.error_occured = 1;
 		if (ret == 0)
 			break ;
-		write(1, &character, 1);
 		update_line_info(&map, character);
 	}
 	if (map.error_occured != 2)
@@ -65,8 +61,10 @@ t_map	*check_borders(t_map_size map_size)
 	size_t	i;
 	t_map	*map;
 
+	if (map_size.error_occured != 0)
+		return (NULL);
 	map = malloc(sizeof(t_map));
-	if (map_size.error_occured != 0 || fill_map(map_size, map) == NULL)
+	if (map == NULL || fill_map(map_size, map) == NULL)
 		return (NULL);
 	map->error = 0;
 	i = 0;

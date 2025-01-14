@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:33:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 10:27:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	so_long(int argc, char **argv)
 		write(1, "Error at check_borders\n", 23);
 		return (-1);
 	}
+	ft_print_map(map);
+	free_map(map, map->height);
 	return (0);
 }
 

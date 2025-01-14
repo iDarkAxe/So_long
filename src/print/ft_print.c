@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:03:57 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/13 18:31:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/14 10:13:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,4 @@ ssize_t	ft_putnbr_fd(long long n, int fd)
 		count_printed += write(fd, "-", 1);
 	}
 	return (count_printed + ft_putnbr_recursive_fd(n, fd));
-}
-
-ssize_t ft_print_position(int x, int y)
-{
-	ssize_t count_printed;
-
-	count_printed = 0;
-	count_printed += write(1, "Pos: x,y(", 9);
-	count_printed += ft_putnbr_fd(x, 1);
-	count_printed += write(1, ", ", 2);
-	count_printed += ft_putnbr_fd(y, 1);
-	count_printed += write(1, ")\n", 2);
-	return (count_printed);
 }
