@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 18:40:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 12:03:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,25 @@ int	so_long(int argc, char **argv)
 	t_mlx	mlx;
 
 	(void)argc;
+	map = check_borders(dimensions_verif(argv[1]));
+	if (map == NULL || map->map == NULL || map->error == -1)
+		return ((void)write(1, "Error at check_borders\n", 23), -1);
 	mlx.mlx_ptr = mlx_init();
 	if (mlx.mlx_ptr == NULL)
 		return (1);
-	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 64 * 34, 64 * 5, "So_long");
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 64 * (int)map->width, 64
+			* ((int)map->height + 1), "So_long");
 	if (mlx.win_ptr == NULL)
-		return ((void)free(mlx.mlx_ptr), 1);
+		return ((void)free(mlx.mlx_ptr), -1);
 	mlx_hook(mlx.win_ptr, 17, 0, close_window, NULL);
-	map = check_borders(dimensions_verif(argv[1]));
-	if (map == NULL || map->map == NULL || map->error == -1)
-	{
-		write(1, "Error at check_borders\n", 23);
-		return (-1);
-	}
+	if (ft_store_textures(&mlx, map) == NULL)
+		return ((void)free_map_textures(mlx, map), -1);
 	ft_draw_map(map, &mlx);
 	mlx_loop(mlx.mlx_ptr);
 	mlx_destroy_window(mlx.mlx_ptr, mlx.win_ptr);
 	free(mlx.mlx_ptr);
 	free(mlx.win_ptr);
-	free_map(map, map->height);
+	free_map_textures(mlx, map);
 	return (0);
 }
 

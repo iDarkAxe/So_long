@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 18:39:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 12:01:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <unistd.h>
 
 // MAIN functions
+
+typedef struct s_img
+{
+	void	*ptr;
+	int		width;
+	int		height;
+}			t_img;
+
+typedef struct s_textures
+{
+	t_img	wall;
+	t_img	floor;
+	t_img	player;
+	t_img	collectible;
+}			t_textures;
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -26,17 +41,18 @@ typedef struct s_mlx
 
 typedef struct s_map
 {
-	char	**map;
-	int		error;
-	size_t	width;
-	size_t	height;
+	char		**map;
+	int			error;
+	size_t		width;
+	size_t		height;
+	t_textures	textures;
 }			t_map;
 
 int			so_long(int argc, char **argv);
 
 void		*ft_settings(t_mlx *mlx);
 int			close_window(void *param);
-
+void		free_map_textures(t_mlx mlx, t_map *map);
 // DRAW functions
 typedef struct s_rectangle
 {
@@ -55,17 +71,11 @@ typedef struct s_circle
 	int		color;
 }			t_circle;
 
-typedef struct s_img
-{
-	void	*ptr;
-	int		width;
-	int		height;
-}			t_img;
-
 void		ft_draw_rectangle(void *mlx_ptr, void *win_ptr,
 				t_rectangle element);
 void		ft_draw_circle(void *mlx_ptr, void *win_ptr, t_circle element);
 void		ft_draw_map(t_map *map, t_mlx *mlx);
+void		*ft_store_textures(t_mlx *mlx, t_map *map);
 
 // HOOKS functions
 int			handle_keypress(int keycode, void *param);

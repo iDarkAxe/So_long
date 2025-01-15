@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 10:15:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 12:02:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,22 @@ static int	handle_keypress_settings(int keycode, void *param)
 
 void	*ft_settings(t_mlx *mlx)
 {
-	int		img_width;
-	int		img_height;
-	void	*img_ptr;
+	t_img	img;
 
-	img_ptr = mlx_xpm_file_to_image(mlx->mlx_ptr, "img/settings.xpm",
-			&img_width, &img_height);
+	img.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr, "img/settings.xpm",
+			&img.width, &img.width);
 	mlx->win_settings_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "Settings");
 	if (mlx->win_settings_ptr == NULL)
 	{
 		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	if (img_ptr == NULL)
+	if (img.ptr == NULL)
 	{
 		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_settings_ptr, img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_settings_ptr, img.ptr, 0, 0);
 	ft_draw_all_circle(mlx->mlx_ptr, mlx->win_settings_ptr);
 	mlx_hook(mlx->win_settings_ptr, MotionNotify, PointerMotionMask,
 		handle_mouse_motion_settings, mlx);

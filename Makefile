@@ -9,7 +9,7 @@ NAME = so_long
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-incompatible-pointer-types-discards-qualifiers -fsanitize=address -fsanitize=leak
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes -Wno-reserved-id-macro -fsanitize=address -fsanitize=leak
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -56,7 +56,8 @@ SRC = \
 
 DRAW = \
 	ft_draw.c \
-	ft_draw_map.c
+	ft_draw_map.c \
+	ft_store_textures.c
 
 MAP_VERIF = \
 	ft_map_dimensions.c \
