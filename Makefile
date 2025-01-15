@@ -65,7 +65,8 @@ MAP_VERIF = \
 
 UTILS = \
 	ft_map_utils.c \
-	ft_random.c
+	ft_random.c \
+	ft_exit.c
 
 PRINT = \
 	ft_print.c \

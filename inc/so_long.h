@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 12:01:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 15:02:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ int			so_long(int argc, char **argv);
 
 void		*ft_settings(t_mlx *mlx);
 int			close_window(void *param);
-void		free_map_textures(t_mlx mlx, t_map *map);
+void		free_map_textures(t_mlx *mlx, t_map *map);
+void		ft_exit(t_mlx mlx, t_map *map);
+
 // DRAW functions
 typedef struct s_rectangle
 {

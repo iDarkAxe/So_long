@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:59:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 11:33:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 14:30:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,21 @@
 #include "ft_print.h"
 
 //@TODO REMOVE OR FIND ALTERNATIVE ?
+#include "mlx.h"
 #include <stdlib.h>
 
 int	close_window(void *param)
 {
-	(void)param;
 	write(1, "Fermeture de la fenêtre.\n", 26);
-	exit(0);
+	mlx_loop_end(((t_mlx *)param)->mlx_ptr);
+	return (0);
 }
 
 int	handle_keypress(int keycode, void *param)
 {
-	(void)param;
 	ft_print_keycode(keycode);
-	if (keycode == 53)
-		exit(0);
 	if (keycode == KEY_ESCAPE)
-		exit(0);
+		close_window(param);
 	return (keycode);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 12:03:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 15:03:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ int	so_long(int argc, char **argv)
 	mlx.mlx_ptr = mlx_init();
 	if (mlx.mlx_ptr == NULL)
 		return (1);
-	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 64 * (int)map->width, 64
-			* ((int)map->height + 1), "So_long");
-	if (mlx.win_ptr == NULL)
-		return ((void)free(mlx.mlx_ptr), -1);
-	mlx_hook(mlx.win_ptr, 17, 0, close_window, NULL);
 	if (ft_store_textures(&mlx, map) == NULL)
-		return ((void)free_map_textures(mlx, map), -1);
+		return ((void)free_map_textures(&mlx, map), -1);
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, map->textures.wall.width
+			* (int)map->width, map->textures.wall.width * ((int)map->height
+				+ 1), "So_long");
+	if (mlx.win_ptr == NULL)
+		return ((void)ft_exit(mlx, map), -1);
+	mlx_hook(mlx.win_ptr, 17, 0, close_window, (void *)&mlx);
+	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, handle_keypress,
+		(void *)&mlx);
 	ft_draw_map(map, &mlx);
 	mlx_loop(mlx.mlx_ptr);
-	mlx_destroy_window(mlx.mlx_ptr, mlx.win_ptr);
-	free(mlx.mlx_ptr);
-	free(mlx.win_ptr);
-	free_map_textures(mlx, map);
+	ft_exit(mlx, map);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:46:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 11:30:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 13:39:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,28 @@ void	free_map(t_map *map, size_t len)
 	map = NULL;
 }
 
-void	free_map_textures(t_mlx mlx, t_map *map)
+void	free_map_textures(t_mlx *mlx, t_map *map)
 {
 	if (map == NULL)
 		return ;
 	if (map->textures.collectible.ptr != NULL)
 	{
-		mlx_destroy_image(mlx.mlx_ptr, map->textures.collectible.ptr);
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.collectible.ptr);
 		map->textures.collectible.ptr = NULL;
 	}
 	if (map->textures.floor.ptr != NULL)
 	{
-		mlx_destroy_image(mlx.mlx_ptr, map->textures.floor.ptr);
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.floor.ptr);
 		map->textures.floor.ptr = NULL;
 	}
 	if (map->textures.wall.ptr != NULL)
 	{
-		mlx_destroy_image(mlx.mlx_ptr, map->textures.wall.ptr);
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.wall.ptr);
 		map->textures.wall.ptr = NULL;
 	}
 	if (map->textures.player.ptr != NULL)
 	{
-		mlx_destroy_image(mlx.mlx_ptr, map->textures.player.ptr);
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.player.ptr);
 		map->textures.player.ptr = NULL;
 	}
 	free_map(map, map->height);
