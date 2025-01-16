@@ -20,6 +20,7 @@ P_SRC = src/
 P_DRAW = draw/
 P_MAP_VERIF = map_verif/
 P_UTILS = utils/
+P_PLAYER = player/
 P_PRINT = print/
 
 # Object directories
@@ -68,6 +69,9 @@ UTILS = \
 	ft_random.c \
 	ft_exit.c
 
+PLAYER = \
+	ft_player.c
+
 PRINT = \
 	ft_print.c \
 	ft_print_special.c
@@ -86,6 +90,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
 	$(addprefix $(P_SRC)$(P_UTILS), $(UTILS)) \
+	$(addprefix $(P_SRC)$(P_PLAYER), $(PLAYER)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)

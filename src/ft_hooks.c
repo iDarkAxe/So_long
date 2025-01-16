@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:59:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 14:30:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/16 17:44:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_print.h"
 #include "keys.h"
 #include "so_long.h"
 #include <unistd.h>
-#include "ft_print.h"
 
 //@TODO REMOVE OR FIND ALTERNATIVE ?
 #include "mlx.h"
@@ -30,7 +30,11 @@ int	handle_keypress(int keycode, void *param)
 {
 	ft_print_keycode(keycode);
 	if (keycode == KEY_ESCAPE)
-		close_window(param);
+		close_window(((t_store *)param)->mlx);
+	if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT
+		|| keycode == KEY_RIGHT)
+		can_player_move(((t_store *)param)->map, ((t_store *)param)->mlx,
+			keycode);
 	return (keycode);
 }
 

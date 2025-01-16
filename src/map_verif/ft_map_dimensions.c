@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 11:32:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/16 17:18:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,17 @@ t_map	*check_borders(t_map_size map_size)
 		return (NULL);
 	map->error = 0;
 	i = 0;
-	while ((i < map->width || i < map->height) && map->error == -1)
+	while ((i < map->width || i < map->height) && map->error != -1)
 	{
-		if (i < map->width && (map->map[0][i] != '1' || map->map[map->height
-				- 1][i] != '1'))
+		if (i < map->width && (map->map[0][i] != '1'
+			|| map->map[map->height][i] != '1'))
 			map->error = -1;
 		else if (i < map->height && (map->map[i][0] != '1'
 			|| map->map[i][map->width - 1] != '1'))
 			map->error = -1;
 		i++;
 	}
+	map->collectibles = find_max_collectibles(map);
+	map->exit = find_position(map, 'E');
 	return (map);
 }

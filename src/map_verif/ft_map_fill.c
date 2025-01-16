@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:45:04 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 12:01:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/16 17:18:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ static void	map_init(t_map *map, t_map_size map_size)
 	map->error = 0;
 	map->width = map_size.line_len;
 	map->height = map_size.count_line;
+	map->collectibles = 0;
+	map->exit = (t_coordinates){0, 0};
 	map->textures.collectible.ptr = NULL;
 	map->textures.floor.ptr = NULL;
-	map->textures.player.ptr = NULL;
+	map->textures.player_fr.ptr = NULL;
+	map->textures.player_fl.ptr = NULL;
 	map->textures.wall.ptr = NULL;
 }
 
@@ -43,6 +46,7 @@ static t_map	*store_map(t_map *map, t_map_size map_size)
 		ret = read(map_size.fd, map->map[i], map_size.line_len + 1);
 		if (ret == -1)
 			return ((void)free_map(map, i), NULL);
+		map->map[i][ret] = '\0';
 		i++;
 	}
 	return (map);
@@ -61,7 +65,7 @@ t_map	*fill_map(t_map_size map_size, t_map *map)
 		return (NULL);
 	while (i <= map->height)
 	{
-		map->map[i] = malloc(sizeof(char) * (map->width + 1));
+		map->map[i] = malloc(sizeof(char) * (map->width + 2));
 		if (map->map[i] == NULL)
 			return ((void)free_map(map, i), NULL);
 		i++;

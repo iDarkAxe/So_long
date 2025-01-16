@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 15:03:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/16 17:51:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ int	so_long(int argc, char **argv)
 				+ 1), "So_long");
 	if (mlx.win_ptr == NULL)
 		return ((void)ft_exit(mlx, map), -1);
-	mlx_hook(mlx.win_ptr, 17, 0, close_window, (void *)&mlx);
+	mlx_hook(mlx.win_ptr, 17, 0, close_window, (void *)&((t_store){.mlx = &mlx,
+			.map = map}));
 	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, handle_keypress,
-		(void *)&mlx);
+		(void *)&((t_store){.mlx = &mlx, .map = map}));
 	ft_draw_map(map, &mlx);
+	ft_draw_tile(&mlx, map, map->textures.player_fr, find_position(map, 'P'));
 	mlx_loop(mlx.mlx_ptr);
-	ft_exit(mlx, map);
-	return (0);
+	return ((void)ft_exit(mlx, map), 0);
 }
 
 // int	so_long(void)
