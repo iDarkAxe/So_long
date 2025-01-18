@@ -9,7 +9,8 @@ NAME = so_long
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes -Wno-reserved-id-macro -fsanitize=address -fsanitize=leak
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
+CC_DEBUG_CFLAGS += -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes -Wno-reserved-id-macro -Wno-documentation-deprecated-sync
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -52,7 +53,6 @@ INC_MLX = \
 # Source files
 SRC = \
 	so_long.c \
-	ft_settings.c \
 	ft_hooks.c \
 
 DRAW = \
@@ -67,6 +67,7 @@ MAP_VERIF = \
 UTILS = \
 	ft_map_utils.c \
 	ft_random.c \
+	ft_free.c \
 	ft_exit.c
 
 PLAYER = \
@@ -79,6 +80,21 @@ PRINT = \
 LIBS = \
 	libmlx_Linux.a \
 	libso_long.a
+
+IMG = \
+	dragon_breath.xpm \
+	end_portal_off.xpm \
+	end_portal_on.xpm \
+	parquet_versailles.xpm \
+	player_fl_end_portal_off.xpm \
+	player_fr_end_portal_off.xpm \
+	stone_bricks_v2.xpm \
+
+IMG_UNUSED = \
+	exit.xpm \
+	player_fl.xpm \
+	settings.xpm \
+	stone_bricks.xpm
 
 #############################################################################################
 #                                                                                           #
@@ -114,8 +130,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create so_long executable
-$(NAME): $(P_OBJ)main.o $(P_LIB)libso_long.a $(P_LIB)libmlx_Linux.a
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $< -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
+$(NAME): $(P_LIB)libmlx_Linux.a $(P_OBJ)main.o $(P_LIB)libso_long.a
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $(P_OBJ)main.o -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
 
 # Create library used to create so_long executable
 $(P_LIB)libso_long.a: $(OBJS)
@@ -132,6 +148,8 @@ $(P_LIB)libmlx_Linux.a:
 	@mkdir -p $(P_LIB)
 	@$(MAKE) -C minilibx-linux
 	@cp minilibx-linux/libmlx_Linux.a $(P_LIB)
+	@cp minilibx-linux/mlx.h inc_mlx/
+	@cp /usr/include/X11/X.h inc_mlx/
 
 #############################################################################################
 #                                                                                           #
@@ -201,6 +219,10 @@ debug-print-project:
 	@echo "$(Red)INCS:\n\t$(Blue)$(INCS)$(Color_Off)"
 	@echo ""
 	@echo "$(Red)LIBS:\n\t$(Blue)$(LIBS)$(Color_Off)"
+	@echo ""
+	@echo "$(Red)IMG:\n\t$(Blue)$(IMG)$(Color_Off)"
+	@echo ""
+	@echo "$(Red)IMG_UNUSED:\n\t$(Blue)$(IMG_UNUSED)$(Color_Off)"
 
 #############################################################################################
 #                                                                                           #

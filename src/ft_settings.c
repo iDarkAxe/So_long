@@ -6,9 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/15 12:02:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 18:49:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_settings.c
+
+ * @brief Functions related to the settings window.
+ * @deprecated This file is deprecated.
+ */
 
 #include "keys.h"
 #include "mlx.h"

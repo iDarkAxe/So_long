@@ -6,24 +6,25 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:03:57 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 10:13:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 19:44:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
 
-static ssize_t	ft_putnbr_hex_pointer(unsigned long nbr, const char *base)
+static ssize_t	ft_putnbr_hex_pointer(unsigned long nbr, const char *base,
+		int fd)
 {
-	ssize_t				temp;
+	ssize_t	temp;
 
 	temp = 0;
 	if (nbr >= 16)
 	{
-		temp += ft_putnbr_hex_pointer(nbr / 16, base);
-		temp += ft_putnbr_hex_pointer(nbr % 16, base);
+		temp += ft_putnbr_hex_pointer(nbr / 16, base, fd);
+		temp += ft_putnbr_hex_pointer(nbr % 16, base, fd);
 	}
 	else
-		temp += write(1, &base[nbr], 1);
+		temp += write(fd, &base[nbr], 1);
 	return (temp);
 }
 
@@ -33,12 +34,12 @@ static ssize_t	ft_putnbr_hex_pointer(unsigned long nbr, const char *base)
  * @param nbr Number to be printed
  * @return ssize_t number of char printed
  */
-ssize_t	ft_putpointer_fd(unsigned long nbr)
+ssize_t	ft_putpointer_fd(unsigned long nbr, int fd)
 {
 	if (!nbr)
-		return (write(1, "(nil)", 5));
-	if (write(1, "0x", 2) != -1)
-		return (ft_putnbr_hex_pointer(nbr, "0123456789abcdef\0") + 2);
+		return (write(fd, "(nil)", 5));
+	if (write(fd, "0x", 2) != -1)
+		return (ft_putnbr_hex_pointer(nbr, "0123456789abcdef\0", fd) + 2);
 	return (-1);
 }
 

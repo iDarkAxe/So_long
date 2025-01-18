@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:45:04 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/16 17:18:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 19:03:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ static void	map_init(t_map *map, t_map_size map_size)
 	map->collectibles = 0;
 	map->exit = (t_coordinates){0, 0};
 	map->textures.collectible.ptr = NULL;
+	map->textures.exit_off.ptr = NULL;
+	map->textures.exit_off_fl.ptr = NULL;
+	map->textures.exit_off_fr.ptr = NULL;
+	map->textures.exit_on.ptr = NULL;
 	map->textures.floor.ptr = NULL;
 	map->textures.player_fr.ptr = NULL;
 	map->textures.player_fl.ptr = NULL;
@@ -52,7 +56,7 @@ static t_map	*store_map(t_map *map, t_map_size map_size)
 	return (map);
 }
 
-t_map	*fill_map(t_map_size map_size, t_map *map)
+t_map	*fill_map(t_map *map, t_map_size map_size)
 {
 	size_t	i;
 
@@ -71,6 +75,8 @@ t_map	*fill_map(t_map_size map_size, t_map *map)
 		i++;
 	}
 	if (store_map(map, map_size) == NULL)
+		return (NULL);
+	if (check_map(map) == -1)
 		return (NULL);
 	return (map);
 }

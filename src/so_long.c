@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/16 17:51:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 19:18:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * @brief Main function of the so_long project
+ * 
+ * @param argc number of arguments
+ * @param argv array of string arguments
+ * @return int 0 if the program ends correctly, -1 otherwise
+ */
 int	so_long(int argc, char **argv)
 {
 	t_map	*map;
@@ -37,35 +44,12 @@ int	so_long(int argc, char **argv)
 				+ 1), "So_long");
 	if (mlx.win_ptr == NULL)
 		return ((void)ft_exit(mlx, map), -1);
-	mlx_hook(mlx.win_ptr, 17, 0, close_window, (void *)&((t_store){.mlx = &mlx,
-			.map = map}));
+	mlx_hook(mlx.win_ptr, DestroyNotify, StructureNotifyMask, close_window,
+		(void *)&((t_store){&mlx, map}));
 	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, handle_keypress,
-		(void *)&((t_store){.mlx = &mlx, .map = map}));
-	ft_draw_map(map, &mlx);
-	ft_draw_tile(&mlx, map, map->textures.player_fr, find_position(map, 'P'));
+		(void *)&((t_store){&mlx, map}));
+	ft_draw_map(&mlx, map);
+	ft_draw_tile(&mlx, map->textures.player_fr, find_position(map, 'P'));
 	mlx_loop(mlx.mlx_ptr);
 	return ((void)ft_exit(mlx, map), 0);
 }
-
-// int	so_long(void)
-// {
-// 	t_mlx	mlx;
-
-// 	mlx.mlx_ptr = mlx_init();
-// 	if (mlx.mlx_ptr == NULL)
-// 		return (1);
-// 	mlx.win_settings_ptr = ft_settings(&mlx);
-// 	if (mlx.win_settings_ptr == NULL)
-// 		return (1);
-// 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 1000, 1000, "So_long");
-// 	if (mlx.win_ptr == NULL)
-// 		return (free(mlx.mlx_ptr), 1);
-// 	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, handle_keypress, NULL);
-// 	mlx_hook(mlx.win_ptr, 17, 0, close_window, NULL);
-// 	mlx_hook(mlx.win_ptr, MotionNotify, PointerMotionMask,
-// 		handle_mouse_motion, &mlx);
-// 	mlx_loop(mlx.mlx_ptr);
-// 	mlx_destroy_window(mlx.mlx_ptr, mlx.win_ptr);
-// 	free(mlx.mlx_ptr);
-// 	return (0);
-// }

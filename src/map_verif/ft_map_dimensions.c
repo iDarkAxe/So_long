@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/16 17:18:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 19:04:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "ft_print.h"
 #include <fcntl.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -64,7 +65,7 @@ t_map	*check_borders(t_map_size map_size)
 	if (map_size.error_occured != 0)
 		return (NULL);
 	map = malloc(sizeof(t_map));
-	if (map == NULL || fill_map(map_size, map) == NULL)
+	if (map == NULL || fill_map(map, map_size) == NULL)
 		return (NULL);
 	map->error = 0;
 	i = 0;
@@ -81,4 +82,38 @@ t_map	*check_borders(t_map_size map_size)
 	map->collectibles = find_max_collectibles(map);
 	map->exit = find_position(map, 'E');
 	return (map);
+}
+
+static int	ft_is_char_valid(char c)
+{
+	if (c == 'C' || c == 'E' || c == 'P' || c == '0' || c == '1')
+		return (1);
+	return (0);
+}
+
+int	check_map(t_map *map)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			if (ft_is_char_valid(map->map[i][j]) != 1)
+			{
+				write(1, "Invalid map at i,j(", 20);
+				ft_putnbr_fd((long long)i, 1);
+				write(1, ",", 1);
+				ft_putnbr_fd((long long)j, 1);
+				write(1, ")\n", 2);
+				return (-1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
