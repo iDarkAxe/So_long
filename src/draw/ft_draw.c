@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:05:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:05:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 18:14:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_draw_player(t_mlx *mlx, t_map *map, int facing,
 	t_coordinates	new_player_pos;
 
 	new_player_pos = find_position(map, 'P');
-	ft_draw_tile(mlx, map->textures.floor, find_position(map, 'p'));
+	ft_draw_tile(mlx, map->textures.floor, old_player_pos);
 	if (old_player_pos.x == map->exit.x && old_player_pos.y == map->exit.y)
 		ft_draw_tile(mlx, map->textures.exit_off, old_player_pos);
 	if (facing == KEY_RIGHT || facing == KEY_UP)

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/14 11:25:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 14:53:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,16 @@ ssize_t	ft_print_map(t_map *map)
 		count_printed += write(1, "\n", 1);
 		count++;
 	}
+	return (count_printed);
+}
+
+ssize_t	ft_print_number_of_moves(size_t number_of_moves)
+{
+	ssize_t	count_printed;
+
+	count_printed = 0;
+	count_printed += write(1, "Number of moves: ", 17);
+	count_printed += ft_putnbr_fd((long long)number_of_moves, 1);
+	count_printed += write(1, "\n", 1);
 	return (count_printed);
 }

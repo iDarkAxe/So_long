@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:42:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 18:20:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  *
  * Contains all structures, function prototypes,
  *	and constants used in the project.
-*/
+ */
 
 # include <stddef.h>
 # include <unistd.h>
@@ -49,11 +49,12 @@ typedef struct s_textures
 	t_img			player_fl;
 	t_img			collectible;
 }					t_textures;
+
 typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
-	void			*win_settings_ptr;
+	// void			*win_settings_ptr;
 }					t_mlx;
 
 typedef struct s_coordinates
@@ -66,6 +67,7 @@ typedef struct s_map
 {
 	char			**map;
 	int				error;
+	size_t			number_of_moves;
 	int				collectibles;
 	t_coordinates	exit;
 	size_t			width;
@@ -227,16 +229,6 @@ int					close_window(void *param);
  * @return int Keycode of the pressed key.
  */
 int					handle_keypress(int keycode, void *param);
-
-/**
- * @brief Handle mouse motion events.
- * @deprecated Not used in the project.
- *
- * @param x X position of the mouse.
- * @param y Y position of the mouse.
- * @param param Parameter passed to the function, needs t_mlx pointer.
- * @return int Status code.
- */
 /** @} */
 
 /**
@@ -275,15 +267,7 @@ t_map_size			dimensions_verif(char *map_name);
  */
 t_map				*check_borders(t_map_size map_size);
 
-/**
- * @brief Check the map for errors.
- * Verifies that the map has at least one player, one exit,
-	and some collectibles.
- *
- * @param map Pointer to the map structure.
- * @return int -1 if an error is found, 0 otherwise.
- */
-int					check_map(t_map *map);
+int					validate_map(t_map *map);
 
 /**
  * @brief Initialize the map structure.
@@ -351,6 +335,11 @@ ssize_t				ft_print_color(int color);
  * @brief Print the map in the terminal.
  */
 ssize_t				ft_print_map(t_map *map);
+
+/**
+ * @brief Print the number of moves.
+ */
+ssize_t				ft_print_number_of_moves(size_t number_of_moves);
 /** @} */
 
 /**
@@ -365,7 +354,7 @@ ssize_t				ft_print_map(t_map *map);
 int					ft_random(int fd);
 
 /**
- * @brief Initialize the random function 
+ * @brief Initialize the random function
  * (generates the seed from a random source).
  */
 int					ft_random_init(void);

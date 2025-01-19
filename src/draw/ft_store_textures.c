@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:39:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 18:04:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 17:51:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_store_textures(t_mlx *mlx, t_map *map)
 	if (store_textures_exit(mlx, map) == NULL)
 		return (NULL);
 	map->textures.collectible.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			"img/dragon_breath.xpm", &(map->textures.collectible.width),
+			"img/eye_of_ender.xpm", &(map->textures.collectible.width),
 			&(map->textures.collectible.height));
 	if (map->textures.collectible.ptr == NULL)
 		return (NULL);

@@ -62,7 +62,8 @@ DRAW = \
 
 MAP_VERIF = \
 	ft_map_dimensions.c \
-	ft_map_fill.c
+	ft_map_fill.c \
+	ft_verify_access.c
 
 UTILS = \
 	ft_map_utils.c \

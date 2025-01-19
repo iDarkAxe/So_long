@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:04:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 18:08:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ t_map_size	dimensions_verif(char *map_name)
 	t_map_size	map;
 
 	map = (t_map_size){0, map_name, 0, 0, 0, 0};
-	if (map_name == NULL)
-		map.map_name = "./example.ber";
 	map.fd = open(map.map_name, O_RDONLY);
 	if (map.fd == -1)
 		map.error_occured = 2;
@@ -84,36 +82,5 @@ t_map	*check_borders(t_map_size map_size)
 	return (map);
 }
 
-static int	ft_is_char_valid(char c)
-{
-	if (c == 'C' || c == 'E' || c == 'P' || c == '0' || c == '1')
-		return (1);
-	return (0);
-}
-
-int	check_map(t_map *map)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			if (ft_is_char_valid(map->map[i][j]) != 1)
-			{
-				write(1, "Invalid map at i,j(", 20);
-				ft_putnbr_fd((long long)i, 1);
-				write(1, ",", 1);
-				ft_putnbr_fd((long long)j, 1);
-				write(1, ")\n", 2);
-				return (-1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
+// if (validate_map(map) == 0)
+// 		map->error = -1;

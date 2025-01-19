@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:40:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:06:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 18:27:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void	can_player_move(t_mlx *mlx, t_map *map, int direction)
 		return ;
 	}
 	if (ft_collectibles_handler(map, mlx, new_pos) == 0)
+	{
+		write(1, "You won!\n", 9);
 		close_window((void *)mlx);
+	}
 	ft_draw_player(mlx, map, direction, old_pos);
 	map->map[old_pos.y][old_pos.x] = '0';
 }

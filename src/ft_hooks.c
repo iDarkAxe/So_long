@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:59:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:12:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 13:44:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int	close_window(void *param)
 {
-	write(1, "Fermeture de la fenêtre.\n", 26);
+	write(1, "Closing current window.\n", 24);
 	mlx_loop_end(((t_mlx *)param)->mlx_ptr);
 	return (0);
 }
@@ -32,8 +32,12 @@ int	handle_keypress(int keycode, void *param)
 		close_window(((t_store *)param)->mlx);
 	if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT
 		|| keycode == KEY_RIGHT)
+	{
 		can_player_move(((t_store *)param)->mlx, ((t_store *)param)->map,
 			keycode);
+		((t_store *)param)->map->number_of_moves++;
+		ft_print_number_of_moves(((t_store *)param)->map->number_of_moves);
+	}
 	return (keycode);
 }
 

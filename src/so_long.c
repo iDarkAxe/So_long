@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:18:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/19 17:15:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	so_long(int argc, char **argv)
 	if (mlx.win_ptr == NULL)
 		return ((void)ft_exit(mlx, map), -1);
 	mlx_hook(mlx.win_ptr, DestroyNotify, StructureNotifyMask, close_window,
-		(void *)&((t_store){&mlx, map}));
+		(void *)&mlx);
 	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, handle_keypress,
 		(void *)&((t_store){&mlx, map}));
 	ft_draw_map(&mlx, map);
