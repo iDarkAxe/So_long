@@ -1,0 +1,194 @@
+.TH "C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the so_long project\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_circle\fP"
+.br
+.ti -1c
+.RI "struct \fBs_coordinates\fP"
+.br
+.ti -1c
+.RI "struct \fBs_img\fP"
+.br
+.ti -1c
+.RI "struct \fBs_map\fP"
+.br
+.ti -1c
+.RI "struct \fBs_map_size\fP"
+.br
+.ti -1c
+.RI "struct \fBs_mlx\fP"
+.br
+.ti -1c
+.RI "struct \fBs_rectangle\fP"
+.br
+.ti -1c
+.RI "struct \fBs_store\fP"
+.br
+.ti -1c
+.RI "struct \fBs_textures\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_circle\fP \fBt_circle\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_coordinates\fP \fBt_coordinates\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_img\fP \fBt_img\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_map\fP \fBt_map\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_map_size\fP \fBt_map_size\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_mlx\fP \fBt_mlx\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_rectangle\fP \fBt_rectangle\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_store\fP \fBt_store\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_textures\fP \fBt_textures\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcan_player_move\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map, int direction)"
+.br
+.RI "Check if the player can move in the given direction\&. "
+.ti -1c
+.RI "\fBt_map\fP * \fBcheck_borders\fP (\fBt_map_size\fP map_size)"
+.br
+.RI "Check the borders of the map\&. Verifies that the map is surrounded by walls\&. "
+.ti -1c
+.RI "int \fBclose_window\fP (void *param)"
+.br
+.RI "Close the program window\&. "
+.ti -1c
+.RI "\fBt_map_size\fP \fBdimensions_verif\fP (char *map_name)"
+.br
+.RI "Verify the dimensions of the map\&. Verifies the length of each line and the number of lines, it should be a rectangle, and the file should be readable\&. A rectangle has the same length for each line\&. It should be at least 3 lines (2 for the borders, 1 for the player to move)\&. "
+.ti -1c
+.RI "\fBt_map\fP * \fBfill_map\fP (\fBt_map\fP *map, \fBt_map_size\fP map_size)"
+.br
+.RI "Initialize the map structure\&. "
+.ti -1c
+.RI "int \fBfind_max_collectibles\fP (\fBt_map\fP *map)"
+.br
+.RI "Find the maximum number of collectibles in the map\&. "
+.ti -1c
+.RI "\fBt_coordinates\fP \fBfind_position\fP (\fBt_map\fP *map, char character)"
+.br
+.RI "Find the position of a character in the map\&. "
+.ti -1c
+.RI "void \fBfree_map\fP (\fBt_map\fP *map, size_t len)"
+.br
+.RI "Store the map in the map structure\&. "
+.ti -1c
+.RI "void \fBfree_map_textures\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.RI "Free the textures from the map\&. "
+.ti -1c
+.RI "void \fBft_draw_circle\fP (void *mlx_ptr, void *win_ptr, \fBt_circle\fP element)"
+.br
+.RI "Draw a circle on the window\&. "
+.ti -1c
+.RI "void \fBft_draw_map\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.RI "Draw the map on the window (use it only at startup)\&. "
+.ti -1c
+.RI "void \fBft_draw_player\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map, int facing, \fBt_coordinates\fP old_player_pos)"
+.br
+.RI "Draw the player on the window\&. Needs the old_player_pos to draw the previous floor tile\&. "
+.ti -1c
+.RI "void \fBft_draw_rectangle\fP (void *mlx_ptr, void *win_ptr, \fBt_rectangle\fP element)"
+.br
+.RI "Draw a rectangle on the window\&. "
+.ti -1c
+.RI "void \fBft_draw_tile\fP (\fBt_mlx\fP *mlx, \fBt_img\fP img, \fBt_coordinates\fP coords)"
+.br
+.RI "Draw a tile on the window\&. "
+.ti -1c
+.RI "void \fBft_exit\fP (\fBt_mlx\fP mlx, \fBt_map\fP *map)"
+.br
+.RI "Exit the program\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_color\fP (int color)"
+.br
+.RI "Print the color of the pixel\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_keycode\fP (int keycode)"
+.br
+.RI "Print the keycode of the pressed key\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the map in the terminal\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_number_of_moves\fP (size_t number_of_moves)"
+.br
+.RI "Print the number of moves\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_position\fP (int x, int y)"
+.br
+.RI "Print the position of the mouse\&. "
+.ti -1c
+.RI "int \fBft_random\fP (int fd)"
+.br
+.RI "Generate a random int number\&. "
+.ti -1c
+.RI "int \fBft_random_init\fP (void)"
+.br
+.RI "Initialize the random function (generates the seed from a random source)\&. "
+.ti -1c
+.RI "void * \fBft_store_textures\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.RI "Function used to store the textures in the map structure\&. "
+.ti -1c
+.RI "int \fBhandle_keypress\fP (int keycode, void *param)"
+.br
+.RI "Handle keypress events\&. "
+.ti -1c
+.RI "int \fBso_long\fP (int argc, char **argv)"
+.br
+.RI "Entry point of the program\&. "
+.ti -1c
+.RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Vérifie la validité de la carte\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for the so_long project\&. 
+
+Contains all structures, function prototypes, and constants used in the project\&. 
+.PP
+Definition in file \fBso_long\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.

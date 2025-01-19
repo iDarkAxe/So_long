@@ -1,0 +1,71 @@
+.TH "Utils" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Utils \- Utils functions
+.PP
+ \- All the functions used to help the program\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBfind_max_collectibles\fP (\fBt_map\fP *map)"
+.br
+.RI "Find the maximum number of collectibles in the map\&. "
+.ti -1c
+.RI "\fBt_coordinates\fP \fBfind_position\fP (\fBt_map\fP *map, char character)"
+.br
+.RI "Find the position of a character in the map\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to help the program\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int find_max_collectibles (\fBt_map\fP * map)"
+
+.PP
+Find the maximum number of collectibles in the map\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Pointer to the map structure\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int Number of collectibles\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB17\fP of file \fBft_map_utils\&.c\fP\&.
+.SS "\fBt_coordinates\fP find_position (\fBt_map\fP * map, char character)"
+
+.PP
+Find the position of a character in the map\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Pointer to the map structure\&. 
+.br
+\fIcharacter\fP character to find\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_coordinates coordinates of the character\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB39\fP of file \fBft_map_utils\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.

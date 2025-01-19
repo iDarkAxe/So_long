@@ -1,0 +1,184 @@
+.TH "Draw" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Draw \- Draw functions
+.PP
+ \- All the functions used to draw elements on the screen\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_circle\fP"
+.br
+.ti -1c
+.RI "struct \fBs_rectangle\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_circle\fP \fBt_circle\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_rectangle\fP \fBt_rectangle\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_draw_circle\fP (void *mlx_ptr, void *win_ptr, \fBt_circle\fP element)"
+.br
+.RI "Draw a circle on the window\&. "
+.ti -1c
+.RI "void \fBft_draw_map\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.RI "Draw the map on the window (use it only at startup)\&. "
+.ti -1c
+.RI "void \fBft_draw_player\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map, int facing, \fBt_coordinates\fP old_player_pos)"
+.br
+.RI "Draw the player on the window\&. Needs the old_player_pos to draw the previous floor tile\&. "
+.ti -1c
+.RI "void \fBft_draw_rectangle\fP (void *mlx_ptr, void *win_ptr, \fBt_rectangle\fP element)"
+.br
+.RI "Draw a rectangle on the window\&. "
+.ti -1c
+.RI "void \fBft_draw_tile\fP (\fBt_mlx\fP *mlx, \fBt_img\fP img, \fBt_coordinates\fP coords)"
+.br
+.RI "Draw a tile on the window\&. "
+.ti -1c
+.RI "void * \fBft_store_textures\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.RI "Function used to store the textures in the map structure\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to draw elements on the screen\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void ft_draw_circle (void * mlx_ptr, void * win_ptr, \fBt_circle\fP element)"
+
+.PP
+Draw a circle on the window\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Not used in the project\&.
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx_ptr\fP Pointer to the mlx instance\&. 
+.br
+\fIwin_ptr\fP Pointer to the window instance\&. 
+.br
+\fIelement\fP Rectangle to draw\&. 
+.RE
+.PP
+
+.SS "void ft_draw_map (\fBt_mlx\fP * mlx, \fBt_map\fP * map)"
+
+.PP
+Draw the map on the window (use it only at startup)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP Pointer to the mlx structure\&. 
+.br
+\fImap\fP Pointer to the map structure\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB19\fP of file \fBft_draw_map\&.c\fP\&.
+.SS "void ft_draw_player (\fBt_mlx\fP * mlx, \fBt_map\fP * map, int facing, \fBt_coordinates\fP old_player_pos)"
+
+.PP
+Draw the player on the window\&. Needs the old_player_pos to draw the previous floor tile\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP Pointer to the mlx structure\&. 
+.br
+\fImap\fP Pointer to the map structure\&. 
+.br
+\fIfacing\fP Facing direction of the player\&. 
+.br
+\fIold_player_pos\fP Coordinates of the previous player position\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB63\fP of file \fBft_draw\&.c\fP\&.
+.SS "void ft_draw_rectangle (void * mlx_ptr, void * win_ptr, \fBt_rectangle\fP element)"
+
+.PP
+Draw a rectangle on the window\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Not used in the project\&.
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx_ptr\fP Pointer to the mlx instance\&. 
+.br
+\fIwin_ptr\fP Pointer to the window instance\&. 
+.br
+\fIelement\fP Rectangle to draw\&. 
+.RE
+.PP
+
+.SS "void ft_draw_tile (\fBt_mlx\fP * mlx, \fBt_img\fP img, \fBt_coordinates\fP coords)"
+
+.PP
+Draw a tile on the window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP Pointer to the mlx structure\&. 
+.br
+\fIimg\fP Image to draw\&. 
+.br
+\fIcoords\fP Coordinates of the tile\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBft_draw\&.c\fP\&.
+.SS "void * ft_store_textures (\fBt_mlx\fP * mlx, \fBt_map\fP * map)"
+
+.PP
+Function used to store the textures in the map structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP Pointer to the mlx structure\&. 
+.br
+\fImap\fP Pointer to the map structure\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void* NULL if failed, map if success\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB19\fP of file \fBft_store_textures\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.

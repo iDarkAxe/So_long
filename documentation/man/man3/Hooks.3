@@ -1,0 +1,71 @@
+.TH "Hooks" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hooks \- Hooks functions
+.PP
+ \- All the functions used to handle events\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBclose_window\fP (void *param)"
+.br
+.RI "Close the program window\&. "
+.ti -1c
+.RI "int \fBhandle_keypress\fP (int keycode, void *param)"
+.br
+.RI "Handle keypress events\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to handle events\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int close_window (void * param)"
+
+.PP
+Close the program window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIparam\fP Parameter passed to the close function, needs t_mlx pointer\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int Status code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB21\fP of file \fBft_hooks\&.c\fP\&.
+.SS "int handle_keypress (int keycode, void * param)"
+
+.PP
+Handle keypress events\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP Keycode of the pressed key\&. 
+.br
+\fIparam\fP Parameter passed to the function, needs t_store pointer\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int Keycode of the pressed key\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBft_hooks\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.

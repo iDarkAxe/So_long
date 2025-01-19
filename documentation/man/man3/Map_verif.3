@@ -1,0 +1,143 @@
+.TH "Map_verif" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Map_verif \- Map verification functions
+.PP
+ \- All the functions used to verify the map\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_map_size\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_map_size\fP \fBt_map_size\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_map\fP * \fBcheck_borders\fP (\fBt_map_size\fP map_size)"
+.br
+.RI "Check the borders of the map\&. Verifies that the map is surrounded by walls\&. "
+.ti -1c
+.RI "\fBt_map_size\fP \fBdimensions_verif\fP (char *map_name)"
+.br
+.RI "Verify the dimensions of the map\&. Verifies the length of each line and the number of lines, it should be a rectangle, and the file should be readable\&. A rectangle has the same length for each line\&. It should be at least 3 lines (2 for the borders, 1 for the player to move)\&. "
+.ti -1c
+.RI "\fBt_map\fP * \fBfill_map\fP (\fBt_map\fP *map, \fBt_map_size\fP map_size)"
+.br
+.RI "Initialize the map structure\&. "
+.ti -1c
+.RI "void \fBfree_map\fP (\fBt_map\fP *map, size_t len)"
+.br
+.RI "Store the map in the map structure\&. "
+.ti -1c
+.RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Vérifie la validité de la carte\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to verify the map\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_map\fP * check_borders (\fBt_map_size\fP map_size)"
+
+.PP
+Check the borders of the map\&. Verifies that the map is surrounded by walls\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap_size\fP Map dimensions and metadata\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_map* Map structure\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB58\fP of file \fBft_map_dimensions\&.c\fP\&.
+.SS "\fBt_map_size\fP dimensions_verif (char * map_name)"
+
+.PP
+Verify the dimensions of the map\&. Verifies the length of each line and the number of lines, it should be a rectangle, and the file should be readable\&. A rectangle has the same length for each line\&. It should be at least 3 lines (2 for the borders, 1 for the player to move)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap_name\fP Name of the map file\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_map_size Map dimensions and metadata\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB34\fP of file \fBft_map_dimensions\&.c\fP\&.
+.SS "\fBt_map\fP * fill_map (\fBt_map\fP * map, \fBt_map_size\fP map_size)"
+
+.PP
+Initialize the map structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Pointer to the map structure\&. 
+.br
+\fImap_size\fP Map dimensions and metadata\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB79\fP of file \fBft_map_fill\&.c\fP\&.
+.SS "void free_map (\fBt_map\fP * map, size_t len)"
+
+.PP
+Store the map in the map structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Pointer to the map structure\&. 
+.br
+\fIlen\fP Map dimensions and metadata\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB20\fP of file \fBft_free\&.c\fP\&.
+.SS "int validate_map (\fBt_map\fP * map)"
+
+.PP
+Vérifie la validité de la carte\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Structure contenant la carte et ses métadonnées\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 si valide, 0 sinon\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBft_verify_access\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.

@@ -1,0 +1,151 @@
+.TH "Print" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Print \- Print functions
+.PP
+ \- All the functions used to print\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ssize_t \fBft_print_color\fP (int color)"
+.br
+.RI "Print the color of the pixel\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_keycode\fP (int keycode)"
+.br
+.RI "Print the keycode of the pressed key\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the map in the terminal\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_number_of_moves\fP (size_t number_of_moves)"
+.br
+.RI "Print the number of moves\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_position\fP (int x, int y)"
+.br
+.RI "Print the position of the mouse\&. "
+.ti -1c
+.RI "ssize_t \fBft_putnbr_fd\fP (long long n, int fd)"
+.br
+.RI "Print numbers in a file descriptor\&. "
+.ti -1c
+.RI "ssize_t \fBft_putpointer_fd\fP (unsigned long ptr, int fd)"
+.br
+.RI "Print a pointer in a file descriptor\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to print\&. 
+
+All the functions used to print nicely\&.
+.SH "Function Documentation"
+.PP 
+.SS "ssize_t ft_print_color (int color)"
+
+.PP
+Print the color of the pixel\&. 
+.PP
+Definition at line \fB29\fP of file \fBft_print_special\&.c\fP\&.
+.SS "ssize_t ft_print_keycode (int keycode)"
+
+.PP
+Print the keycode of the pressed key\&. 
+.PP
+Definition at line \fB40\fP of file \fBft_print_special\&.c\fP\&.
+.SS "ssize_t ft_print_map (\fBt_map\fP * map)"
+
+.PP
+Print the map in the terminal\&. 
+.PP
+Definition at line \fB51\fP of file \fBft_print_special\&.c\fP\&.
+.SS "ssize_t ft_print_number_of_moves (size_t number_of_moves)"
+
+.PP
+Print the number of moves\&. 
+.PP
+Definition at line \fB67\fP of file \fBft_print_special\&.c\fP\&.
+.SS "ssize_t ft_print_position (int x, int y)"
+
+.PP
+Print the position of the mouse\&. 
+.PP
+Definition at line \fB16\fP of file \fBft_print_special\&.c\fP\&.
+.SS "ssize_t ft_putnbr_fd (long long n, int fd)"
+
+.PP
+Print numbers in a file descriptor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP Number to print\&. 
+.br
+\fIfd\fP File descriptor 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of printed characters\&.
+.RE
+.PP
+Print numbers in a file descriptor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP number to print 
+.br
+\fIfd\fP file descriptor 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of char printed 
+.RE
+.PP
+
+.PP
+Definition at line \fB73\fP of file \fBft_print\&.c\fP\&.
+.SS "ssize_t ft_putpointer_fd (unsigned long nbr, int fd)"
+
+.PP
+Print a pointer in a file descriptor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP Pointer to print\&. 
+.br
+\fIfd\fP File descriptor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of printed characters\&.
+.RE
+.PP
+Print a pointer in a file descriptor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fInbr\fP Number to be printed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of char printed 
+.RE
+.PP
+
+.PP
+Definition at line \fB37\fP of file \fBft_print\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for So_long from the source code\&.
