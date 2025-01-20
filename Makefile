@@ -84,13 +84,12 @@ LIBS = \
 	libso_long.a
 
 IMG = \
-	dragon_breath.xpm \
+	parquet_versailles.xpm \
 	end_portal_off.xpm \
 	end_portal_on.xpm \
-	parquet_versailles.xpm \
 	player_fl_end_portal_off.xpm \
 	player_fr_end_portal_off.xpm \
-	stone_bricks_v2.xpm \
+	stone_bricks_v2.xpm 
 
 IMG_UNUSED = \
 	player.xpm \
