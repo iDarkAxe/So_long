@@ -1,6 +1,6 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -O3
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
@@ -129,7 +129,9 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create so_long executable
-$(NAME): $(P_LIB)libmlx_Linux.a $(P_OBJ)main.o $(P_LIB)libso_long.a
+$(NAME): $(P_OBJ)main.o
+	@$(MAKE) $(P_LIB)libmlx_Linux.a 
+	@$(MAKE) $(P_LIB)libso_long.a
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $(P_OBJ)main.o -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
 
 # Create library used to create so_long executable
@@ -157,14 +159,17 @@ $(P_LIB)libmlx_Linux.a:
 #############################################################################################
 # Rules for clean up
 clean:
-	rm -rfd $(P_OBJ)
+	@rm -rfd $(P_OBJ)
+	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
+	@echo "$(Green)Cleaned $(P_OBJ) and minilibx-linux$(Color_Off)"
 
 clean-lib:
-	rm -rfd $(P_LIB)
+	@rm -rfd $(P_LIB)
+	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)"
 
 clean-bin:
-	rm -f $(NAME)
-	rm -f checker
+	@rm -f $(NAME)
+	@echo "$(Green)Cleaned $(NAME)$(Color_Off)"
 
 clean-obj:
 	@$(MAKE) clean
@@ -173,6 +178,7 @@ fclean:
 	@$(MAKE) clean-obj
 	@$(MAKE) clean-lib
 	@$(MAKE) clean-bin
+	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
 
 re:
 	@$(MAKE) fclean
