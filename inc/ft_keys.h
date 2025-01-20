@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   ft_keys.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 16:48:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 19:43:52 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
+/*   Updated: 2025/01/20 16:12:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_H
-# define KEYS_H
+#ifndef FT_KEYS_H
+# define FT_KEYS_H
 
 /**
- * @file keys.h
+ * @file ft_keys.h
  * @brief Header file for the key used in so_long.
  *
 */
@@ -23,7 +23,7 @@
 
 /**
  * @defgroup Keys Keys macros
- * @brief Core functionality of the program.
+ * @brief Regroup all the keys used in the project.
  * @{
  */
 

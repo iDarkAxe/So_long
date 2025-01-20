@@ -6,11 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:40:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 18:27:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:53:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "keys.h"
+#include "ft_keys.h"
 #include "so_long.h"
 
 static int	ft_collectibles_handler(t_map *map, t_mlx *mlx,

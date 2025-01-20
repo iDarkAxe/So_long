@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 18:20:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 16:09:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,6 +267,14 @@ t_map_size			dimensions_verif(char *map_name);
  */
 t_map				*check_borders(t_map_size map_size);
 
+/**
+ * @brief Check the validity access of the map.
+ * Create a copy of the map to check if all the collectibles
+ * and the exit are accessible.
+ *
+ * @param map Structure contenant la carte et ses métadonnées.
+ * @return int 0 si valide, -1 sinon.
+ */
 int					validate_map(t_map *map);
 
 /**
@@ -283,7 +291,7 @@ t_map				*fill_map(t_map *map, t_map_size map_size);
  * @param map Pointer to the map structure.
  * @param len Map dimensions and metadata.
  */
-void				free_map(t_map *map, size_t len);
+void				free_map(t_map *map, char **map_to_delete, size_t len);
 /** @} */
 
 /**
@@ -334,7 +342,7 @@ ssize_t				ft_print_color(int color);
 /**
  * @brief Print the map in the terminal.
  */
-ssize_t				ft_print_map(t_map *map);
+ssize_t				ft_print_map(t_map *map, char **map_to_print);
 
 /**
  * @brief Print the number of moves.

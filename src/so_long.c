@@ -6,11 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 17:15:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:53:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "keys.h"
+#include "ft_keys.h"
 #include "mlx.h"
 #include "so_long.h"
 #include <stddef.h>

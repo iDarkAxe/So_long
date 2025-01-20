@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:45:04 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 15:52:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:39:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		check_map_verify_count(t_map *map);
  * @brief Initialize the map structure.
  * It's used to set the map structure to NULL and 0.
  * It's used to avoid undefined behavior or double free.
- * 
+ *
  * @param map Pointer to the map structure.
  * @param map_size Map dimensions and metadata.
  */
@@ -48,8 +48,8 @@ static void	map_init(t_map *map, t_map_size map_size)
 
 /**
  * @brief Store the map in the map structure.
- * 
- * 
+ *
+ *
  * @param map Pointer to the map structure.
  * @param map_size Map dimensions and metadata.
  * @return t_map* Map structure if success, NULL otherwise.
@@ -68,7 +68,7 @@ static t_map	*store_map(t_map *map, t_map_size map_size)
 	{
 		ret = read(map_size.fd, map->map[i], map_size.line_len + 1);
 		if (ret == -1)
-			return ((void)free_map(map, i), NULL);
+			return ((void)free_map(map, map->map, i), NULL);
 		map->map[i][ret] = '\0';
 		i++;
 	}
@@ -91,19 +91,18 @@ t_map	*fill_map(t_map *map, t_map_size map_size)
 	{
 		map->map[i] = malloc(sizeof(char) * (map->width + 2));
 		if (map->map[i] == NULL)
-			return ((void)free_map(map, i), NULL);
+			return ((void)free_map(map, map->map, i), NULL);
 		i++;
 	}
-	if (store_map(map, map_size) == NULL)
-		return (NULL);
-	if (check_map_verify_count(map) == -1)
-		return (NULL);
+	if (store_map(map, map_size) == NULL || check_map_verify_count(map) == -1
+		|| validate_map(map) == -1)
+		return ((void)free_map(map, map->map, map->height), NULL);
 	return (map);
 }
 
 /**
  * @brief Check if a character is valid.
- * 
+ *
  * @param c character to check.
  * @return int 1
  */

@@ -7,7 +7,7 @@
         "request": "launch",
         "program": "${workspaceFolder}/so_long",
         "args": [
-          "./map/example.ber"
+          "./map/impossible.ber"
         ],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 18:08:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 10:39:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,3 @@ t_map	*check_borders(t_map_size map_size)
 	map->exit = find_position(map, 'E');
 	return (map);
 }
-
-// if (validate_map(map) == 0)
-// 		map->error = -1;

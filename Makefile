@@ -7,10 +7,11 @@ MAKE := $(MAKE) -j $(NO_DIR)
 NAME = so_long
 
 # Debugging flags
-CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
+CFLAGS_DEBUG = -Wall -Wextra -g3
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
-CC_DEBUG_CFLAGS += -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes -Wno-reserved-id-macro -Wno-documentation-deprecated-sync
+CC_DEBUG_CFLAGS = -g3 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
+CC_DEBUG_CFLAGS += -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes
+CC_DEBUG_CFLAGS += -Wno-reserved-id-macro -Wno-documentation-deprecated-sync
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -41,9 +42,9 @@ P_LIB = lib/
 #############################################################################################
 # Headers
 INC = \
-	keys.h \
-	mlx.h \
+	ft_keys.h \
 	so_long.h \
+	ft_textures.h \
 	ft_print.h
 
 INC_MLX = \
@@ -92,10 +93,8 @@ IMG = \
 	stone_bricks_v2.xpm \
 
 IMG_UNUSED = \
-	exit.xpm \
-	player_fl.xpm \
-	settings.xpm \
-	stone_bricks.xpm
+	player.xpm \
+	settings.xpm
 
 #############################################################################################
 #                                                                                           #

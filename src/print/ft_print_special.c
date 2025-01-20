@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 14:53:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 10:01:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ ssize_t	ft_print_keycode(int keycode)
 	return (count_printed);
 }
 
-ssize_t	ft_print_map(t_map *map)
+ssize_t	ft_print_map(t_map *map, char **map_to_print)
 {
 	ssize_t	count_printed;
 	size_t	count;
@@ -57,7 +57,7 @@ ssize_t	ft_print_map(t_map *map)
 	count = 0;
 	while (count < map->height + 1)
 	{
-		count_printed += write(1, map->map[count], map->width);
+		count_printed += write(1, map_to_print[count], map->width);
 		count_printed += write(1, "\n", 1);
 		count++;
 	}

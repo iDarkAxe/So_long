@@ -6,12 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:59:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/19 13:44:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:53:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
-#include "keys.h"
+#include "ft_keys.h"
 #include "so_long.h"
 #include <unistd.h>
 
