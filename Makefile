@@ -125,12 +125,11 @@ INCS = \
 #                                          RULES                                            #
 #                                                                                           #
 #############################################################################################
-all: 
+all:
 	@$(MAKE) $(NAME)
 
 # Create so_long executable
-$(NAME): $(P_OBJ)main.o
-	@$(MAKE) $(P_LIB)libmlx_Linux.a 
+$(NAME): $(P_LIB)libmlx_Linux.a $(P_LIB)libso_long.a $(P_OBJ)main.o
 	@$(MAKE) $(P_LIB)libso_long.a
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $(P_OBJ)main.o -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
 
@@ -140,7 +139,7 @@ $(P_LIB)libso_long.a: $(OBJS)
 	ar -rcs $(P_LIB)libso_long.a $^
 
 # Custom rule to compilate all .c with there path
-$(P_OBJ)%.o: $(P_SRC)%.c
+$(P_OBJ)%.o: $(P_SRC)%.c Makefile
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -c $< -o $@
 
@@ -257,4 +256,4 @@ On_Purple=\033[45m
 On_Cyan=\033[46m
 On_White=\033[47m
 
--include $(DEPS)% 
+-include $(DEPS)
