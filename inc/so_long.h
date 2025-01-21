@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/20 16:09:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 12:53:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -316,6 +316,14 @@ t_coordinates		find_position(t_map *map, char character);
  * @return int Number of collectibles.
  */
 int					find_max_collectibles(t_map *map);
+
+/**
+ * @brief Create a copy of source into a new pointer
+ *	NEEDS to be freed
+ * @param source
+ * @return char*
+ */
+char				*ft_strdup(const char *source);
 /** @} */
 
 /**

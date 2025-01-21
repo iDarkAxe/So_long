@@ -70,7 +70,8 @@ UTILS = \
 	ft_map_utils.c \
 	ft_random.c \
 	ft_free.c \
-	ft_exit.c
+	ft_exit.c \
+	ft_strdup.c
 
 PLAYER = \
 	ft_player.c

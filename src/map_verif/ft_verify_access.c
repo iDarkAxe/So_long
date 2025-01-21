@@ -6,15 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:51:57 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/20 16:08:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 12:54:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// @TODO REMOVE !!!
 #include <stdlib.h>
-#include <string.h>
 
 // /**
 //  * @brief DFS pour valider l'accessibilité des collectibles et de la sortie.
@@ -40,7 +37,7 @@ int	validate_map(t_map *map)
 		return (-1);
 	while (i <= map->height)
 	{
-		new_map[i] = strdup(map->map[i]);
+		new_map[i] = ft_strdup(map->map[i]);
 		if (new_map[i] == NULL)
 			return ((void)free(new_map), -1);
 		i++;
