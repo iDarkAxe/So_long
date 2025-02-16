@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>So_long: C:/Users/Pierre/Documents/Git_Repos/So_long/src/utils/ft_map_utils.c Source File</title>
+<title>So_long: src/utils/ft_map_utils.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -122,7 +122,7 @@ $(function(){initNavTree('ft__map__utils_8c_source.html',''); initResizable(true
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;mlx.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group___utils.html#ga26f44162d0741253b7e0195e3efb891e">   17</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group___utils.html#ga26f44162d0741253b7e0195e3efb891e">find_max_collectibles</a>(t_map *map)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group__Utils.html#ga26f44162d0741253b7e0195e3efb891e">   17</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="group__Utils.html#ga26f44162d0741253b7e0195e3efb891e">find_max_collectibles</a>(<a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map)</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">int</span>     collectibles;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">size_t</span>  x;</div>
@@ -146,9 +146,9 @@ $(function(){initNavTree('ft__map__utils_8c_source.html',''); initResizable(true
 </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group___utils.html#ga6773ec048518cae5da24b90767569a7d">   39</a></span>t_coordinates   <a class="code hl_function" href="group___utils.html#ga6773ec048518cae5da24b90767569a7d">find_position</a>(t_map *map, <span class="keywordtype">char</span> character)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group__Utils.html#ga6773ec048518cae5da24b90767569a7d">   39</a></span><a class="code hl_typedef" href="group__Main.html#gafa44f6fca2c6564b0206b8aa3bc495ec">t_coordinates</a>  <a class="code hl_function" href="group__Utils.html#ga6773ec048518cae5da24b90767569a7d">find_position</a>(<a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map, <span class="keywordtype">char</span> character)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    t_coordinates   player;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="group__Main.html#gafa44f6fca2c6564b0206b8aa3bc495ec">t_coordinates</a>  player;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    player.y = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">while</span> (player.y &lt; map-&gt;height &amp;&amp; map-&gt;map[player.y] != NULL)</div>
@@ -167,8 +167,10 @@ $(function(){initNavTree('ft__map__utils_8c_source.html',''); initResizable(true
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">return</span> (player);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
 </div>
-<div class="ttc" id="agroup___utils_html_ga26f44162d0741253b7e0195e3efb891e"><div class="ttname"><a href="group___utils.html#ga26f44162d0741253b7e0195e3efb891e">find_max_collectibles</a></div><div class="ttdeci">int find_max_collectibles(t_map *map)</div><div class="ttdoc">Find the maximum number of collectibles in the map.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ft_map_utils.c:17</a></div></div>
-<div class="ttc" id="agroup___utils_html_ga6773ec048518cae5da24b90767569a7d"><div class="ttname"><a href="group___utils.html#ga6773ec048518cae5da24b90767569a7d">find_position</a></div><div class="ttdeci">t_coordinates find_position(t_map *map, char character)</div><div class="ttdoc">Find the position of a character in the map.</div><div class="ttdef"><b>Definition</b> <a href="#l00039">ft_map_utils.c:39</a></div></div>
+<div class="ttc" id="agroup__Main_html_gaa6370cd7b08553210cd2ca45f421b122"><div class="ttname"><a href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a></div><div class="ttdeci">struct s_map t_map</div><div class="ttdoc">Structure that handle the map informations.</div></div>
+<div class="ttc" id="agroup__Main_html_gafa44f6fca2c6564b0206b8aa3bc495ec"><div class="ttname"><a href="group__Main.html#gafa44f6fca2c6564b0206b8aa3bc495ec">t_coordinates</a></div><div class="ttdeci">struct s_coordinates t_coordinates</div><div class="ttdoc">Structure used to store the coordinates (positive only).</div></div>
+<div class="ttc" id="agroup__Utils_html_ga26f44162d0741253b7e0195e3efb891e"><div class="ttname"><a href="group__Utils.html#ga26f44162d0741253b7e0195e3efb891e">find_max_collectibles</a></div><div class="ttdeci">int find_max_collectibles(t_map *map)</div><div class="ttdoc">Find the maximum number of collectibles in the map.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ft_map_utils.c:17</a></div></div>
+<div class="ttc" id="agroup__Utils_html_ga6773ec048518cae5da24b90767569a7d"><div class="ttname"><a href="group__Utils.html#ga6773ec048518cae5da24b90767569a7d">find_position</a></div><div class="ttdeci">t_coordinates find_position(t_map *map, char character)</div><div class="ttdoc">Find the position of a character in the map.</div><div class="ttdef"><b>Definition</b> <a href="#l00039">ft_map_utils.c:39</a></div></div>
 <div class="ttc" id="aso__long_8h_html"><div class="ttname"><a href="so__long_8h.html">so_long.h</a></div><div class="ttdoc">Header file for the so_long project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -176,7 +178,7 @@ $(function(){initNavTree('ft__map__utils_8c_source.html',''); initResizable(true
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li><li class="navelem"><b>ft_map_utils.c</b></li>
-    <li class="footer">Generated on Sun Jan 19 2025 22:56:40 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Feb 16 2025 11:49:25 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

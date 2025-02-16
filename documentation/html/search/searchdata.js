@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "cdfhklmprsuv",
+  0: "cdfhklmprstuv",
   1: "s",
-  2: "fks",
+  2: "fs",
   3: "cdfhsv",
-  4: "dfhkmpruv",
-  5: "dl"
+  4: "t",
+  5: "dfhkmpruv",
+  6: "dl"
 };
 
 var indexSectionNames =
@@ -14,8 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "groups",
-  5: "pages"
+  4: "typedefs",
+  5: "groups",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -24,7 +26,8 @@ var indexSectionLabels =
   1: "Data Structures",
   2: "Files",
   3: "Functions",
-  4: "Modules",
-  5: "Pages"
+  4: "Typedefs",
+  5: "Modules",
+  6: "Pages"
 };
 

@@ -1,4 +1,4 @@
-.TH "Map_verif" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.TH "Map_verif" 3 "Sun Feb 16 2025 11:49:25" "So_long" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,6 +15,7 @@ Map_verif \- Map verification functions
 .ti -1c
 .RI "struct \fBs_map_size\fP"
 .br
+.RI "Structure used to store the map dimensions and metadata\&. "
 .in -1c
 .SS "Typedefs"
 
@@ -22,6 +23,7 @@ Map_verif \- Map verification functions
 .ti -1c
 .RI "typedef struct \fBs_map_size\fP \fBt_map_size\fP"
 .br
+.RI "Structure used to store the map dimensions and metadata\&. "
 .in -1c
 .SS "Functions"
 
@@ -39,13 +41,13 @@ Map_verif \- Map verification functions
 .br
 .RI "Initialize the map structure\&. "
 .ti -1c
-.RI "void \fBfree_map\fP (\fBt_map\fP *map, size_t len)"
+.RI "void \fBfree_map\fP (\fBt_map\fP *map, char **map_to_delete, size_t len)"
 .br
 .RI "Store the map in the map structure\&. "
 .ti -1c
 .RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
 .br
-.RI "Vérifie la validité de la carte\&. "
+.RI "Check the validity access of the map\&. Create a copy of the map to check if all the collectibles and the exit are accessible\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -84,7 +86,7 @@ Verify the dimensions of the map\&. Verifies the length of each line and the num
 .PP
 \fBReturns\fP
 .RS 4
-t_map_size Map dimensions and metadata\&. 
+\fBt_map_size\fP Map dimensions and metadata\&. 
 .RE
 .PP
 
@@ -102,10 +104,15 @@ Initialize the map structure\&.
 \fImap_size\fP Map dimensions and metadata\&. 
 .RE
 .PP
+\fBReturns\fP
+.RS 4
+t_map* Map structure\&. 
+.RE
+.PP
 
 .PP
 Definition at line \fB79\fP of file \fBft_map_fill\&.c\fP\&.
-.SS "void free_map (\fBt_map\fP * map, size_t len)"
+.SS "void free_map (\fBt_map\fP * map, char ** map_to_delete, size_t len)"
 
 .PP
 Store the map in the map structure\&. 
@@ -123,7 +130,7 @@ Definition at line \fB20\fP of file \fBft_free\&.c\fP\&.
 .SS "int validate_map (\fBt_map\fP * map)"
 
 .PP
-Vérifie la validité de la carte\&. 
+Check the validity access of the map\&. Create a copy of the map to check if all the collectibles and the exit are accessible\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -132,12 +139,12 @@ Vérifie la validité de la carte\&.
 .PP
 \fBReturns\fP
 .RS 4
-int 1 si valide, 0 sinon\&. 
+int 0 si valide, -1 sinon\&. 
 .RE
 .PP
 
 .PP
-Definition at line \fB57\fP of file \fBft_verify_access\&.c\fP\&.
+Definition at line \fB28\fP of file \fBft_verify_access\&.c\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for So_long from the source code\&.

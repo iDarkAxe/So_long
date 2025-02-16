@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>So_long: C:/Users/Pierre/Documents/Git_Repos/So_long/src/print/ft_print.c Source File</title>
+<title>So_long: src/print/ft_print.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(function(){initNavTree('ft__print_8c_source.html',''); initResizable(true); })
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group___print.html#gaf2587cab3ec164af557fdc12ccd4be20">   37</a></span>ssize_t <a class="code hl_function" href="group___print.html#gaf2587cab3ec164af557fdc12ccd4be20">ft_putpointer_fd</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nbr, <span class="keywordtype">int</span> fd)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group__Print.html#gaf2587cab3ec164af557fdc12ccd4be20">   37</a></span>ssize_t <a class="code hl_function" href="group__Print.html#gaf2587cab3ec164af557fdc12ccd4be20">ft_putpointer_fd</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nbr, <span class="keywordtype">int</span> fd)</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> (!nbr)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> (write(fd, <span class="stringliteral">&quot;(nil)&quot;</span>, 5));</div>
@@ -153,14 +153,14 @@ $(function(){initNavTree('ft__print_8c_source.html',''); initResizable(true); })
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    count_printed = 0;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> (n &gt;= 10)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        count_printed += <a class="code hl_function" href="group___print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a>(n / 10, fd);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        count_printed += <a class="code hl_function" href="group__Print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a>(n / 10, fd);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    temp = n % 10 + <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    count_printed += write(fd, &amp;temp, 1);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">return</span> (count_printed);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
 <div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="group___print.html#gaf3b18b0c7b01d26f89b2f71557adf532">   73</a></span>ssize_t <a class="code hl_function" href="group___print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n, <span class="keywordtype">int</span> fd)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="group__Print.html#gaf3b18b0c7b01d26f89b2f71557adf532">   73</a></span>ssize_t <a class="code hl_function" href="group__Print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n, <span class="keywordtype">int</span> fd)</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    ssize_t count_printed;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
@@ -174,15 +174,15 @@ $(function(){initNavTree('ft__print_8c_source.html',''); initResizable(true); })
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
 </div>
 <div class="ttc" id="aft__print_8h_html"><div class="ttname"><a href="ft__print_8h.html">ft_print.h</a></div><div class="ttdoc">Header file for the print functions.</div></div>
-<div class="ttc" id="agroup___print_html_gaf2587cab3ec164af557fdc12ccd4be20"><div class="ttname"><a href="group___print.html#gaf2587cab3ec164af557fdc12ccd4be20">ft_putpointer_fd</a></div><div class="ttdeci">ssize_t ft_putpointer_fd(unsigned long nbr, int fd)</div><div class="ttdoc">Print pointer adress.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">ft_print.c:37</a></div></div>
-<div class="ttc" id="agroup___print_html_gaf3b18b0c7b01d26f89b2f71557adf532"><div class="ttname"><a href="group___print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a></div><div class="ttdeci">ssize_t ft_putnbr_fd(long long n, int fd)</div><div class="ttdoc">Write the int &#39;n&#39; on the given file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">ft_print.c:73</a></div></div>
+<div class="ttc" id="agroup__Print_html_gaf2587cab3ec164af557fdc12ccd4be20"><div class="ttname"><a href="group__Print.html#gaf2587cab3ec164af557fdc12ccd4be20">ft_putpointer_fd</a></div><div class="ttdeci">ssize_t ft_putpointer_fd(unsigned long nbr, int fd)</div><div class="ttdoc">Print pointer adress.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">ft_print.c:37</a></div></div>
+<div class="ttc" id="agroup__Print_html_gaf3b18b0c7b01d26f89b2f71557adf532"><div class="ttname"><a href="group__Print.html#gaf3b18b0c7b01d26f89b2f71557adf532">ft_putnbr_fd</a></div><div class="ttdeci">ssize_t ft_putnbr_fd(long long n, int fd)</div><div class="ttdoc">Write the int &#39;n&#39; on the given file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">ft_print.c:73</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_88882e61be18287799144fcdac847ecd.html">print</a></li><li class="navelem"><b>ft_print.c</b></li>
-    <li class="footer">Generated on Sun Jan 19 2025 22:56:40 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Feb 16 2025 11:49:25 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

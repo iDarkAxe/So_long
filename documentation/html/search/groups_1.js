@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['functions_0',['Main Functions',['../group___main.html',1,'']]],
-  ['functions_1',['functions',['../group___draw.html',1,'Draw functions'],['../group___hooks.html',1,'Hooks functions'],['../group___map__verif.html',1,'Map verification functions'],['../group___player.html',1,'Player functions'],['../group___print.html',1,'Print functions'],['../group___random.html',1,'Random functions'],['../group___utils.html',1,'Utils functions']]]
+  ['functions_0',['Main Functions',['../group__Main.html',1,'']]],
+  ['functions_1',['functions',['../group__Draw.html',1,'Draw functions'],['../group__Hooks.html',1,'Hooks functions'],['../group__Map__verif.html',1,'Map verification functions'],['../group__Player.html',1,'Player functions'],['../group__Print.html',1,'Print functions'],['../group__Random.html',1,'Random functions'],['../group__Utils.html',1,'Utils functions']]]
 ];

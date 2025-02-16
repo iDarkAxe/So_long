@@ -1,12 +1,12 @@
 var topics =
 [
-    [ "Draw functions", "group___draw.html", "group___draw" ],
-    [ "Hooks functions", "group___hooks.html", "group___hooks" ],
-    [ "Keys macros", "group___keys.html", null ],
-    [ "Main Functions", "group___main.html", "group___main" ],
-    [ "Map verification functions", "group___map__verif.html", "group___map__verif" ],
-    [ "Player functions", "group___player.html", "group___player" ],
-    [ "Print functions", "group___print.html", "group___print" ],
-    [ "Random functions", "group___random.html", "group___random" ],
-    [ "Utils functions", "group___utils.html", "group___utils" ]
+    [ "Draw functions", "group__Draw.html", "group__Draw" ],
+    [ "Hooks functions", "group__Hooks.html", "group__Hooks" ],
+    [ "Keys macros", "group__Keys.html", "group__Keys" ],
+    [ "Main Functions", "group__Main.html", "group__Main" ],
+    [ "Map verification functions", "group__Map__verif.html", "group__Map__verif" ],
+    [ "Player functions", "group__Player.html", "group__Player" ],
+    [ "Print functions", "group__Print.html", "group__Print" ],
+    [ "Random functions", "group__Random.html", "group__Random" ],
+    [ "Utils functions", "group__Utils.html", "group__Utils" ]
 ];

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:55:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 18:49:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/02/16 11:45:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 
 int	handle_mouse_motion_settings(int x, int y, void *param);
 
+/**
+ * @brief Draw the circle on the setting window.
+ * 
+ * @param mlx_ptr mlx instance pointer.
+ * @param win_settings_ptr window instance pointer.
+ */
 static void	ft_draw_all_circle(void *mlx_ptr, void *win_settings_ptr)
 {
 	ft_draw_circle(mlx_ptr, win_settings_ptr, (t_circle){35, 140, 20,

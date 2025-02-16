@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>So_long: C:/Users/Pierre/Documents/Git_Repos/So_long/src/draw/ft_draw_map.c Source File</title>
+<title>So_long: src/draw/ft_draw_map.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,11 +120,11 @@ $(function(){initNavTree('ft__draw__map_8c_source.html',''); initResizable(true)
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;mlx.h&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="so__long_8h.html">so_long.h</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> <span class="keywordtype">void</span> ft_draw_map_specials(t_map *map, t_mlx *mlx, <span class="keywordtype">size_t</span> count,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> <span class="keywordtype">void</span> ft_draw_map_specials(<a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map, <a class="code hl_typedef" href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a> *mlx, <span class="keywordtype">size_t</span> count,</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                <span class="keywordtype">size_t</span> count2);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group___draw.html#gab4eeebec93093b86fa70907d5eb81f84">   19</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="group___draw.html#gab4eeebec93093b86fa70907d5eb81f84">ft_draw_map</a>(t_mlx *mlx, t_map *map)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group__Draw.html#gab4eeebec93093b86fa70907d5eb81f84">   19</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="group__Draw.html#gab4eeebec93093b86fa70907d5eb81f84">ft_draw_map</a>(<a class="code hl_typedef" href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a> *mlx, <a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">size_t</span>  count;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">size_t</span>  count2;</div>
@@ -152,7 +152,7 @@ $(function(){initNavTree('ft__draw__map_8c_source.html',''); initResizable(true)
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
 </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">static</span> <span class="keywordtype">void</span> ft_draw_map_specials(t_map *map, t_mlx *mlx, <span class="keywordtype">size_t</span> count,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">static</span> <span class="keywordtype">void</span> ft_draw_map_specials(<a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map, <a class="code hl_typedef" href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a> *mlx, <span class="keywordtype">size_t</span> count,</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">size_t</span> count2)</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">if</span> (map-&gt;map[count2][count] == <span class="charliteral">&#39;C&#39;</span>)</div>
@@ -162,7 +162,9 @@ $(function(){initNavTree('ft__draw__map_8c_source.html',''); initResizable(true)
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        mlx_put_image_to_window(mlx-&gt;mlx_ptr, mlx-&gt;win_ptr,</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            map-&gt;textures.exit_off.ptr, (<span class="keywordtype">int</span>)count * 64, (<span class="keywordtype">int</span>)count2 * 64);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
-<div class="ttc" id="agroup___draw_html_gab4eeebec93093b86fa70907d5eb81f84"><div class="ttname"><a href="group___draw.html#gab4eeebec93093b86fa70907d5eb81f84">ft_draw_map</a></div><div class="ttdeci">void ft_draw_map(t_mlx *mlx, t_map *map)</div><div class="ttdoc">Draw the map on the window (use it only at startup).</div><div class="ttdef"><b>Definition</b> <a href="#l00019">ft_draw_map.c:19</a></div></div>
+<div class="ttc" id="agroup__Draw_html_gab4eeebec93093b86fa70907d5eb81f84"><div class="ttname"><a href="group__Draw.html#gab4eeebec93093b86fa70907d5eb81f84">ft_draw_map</a></div><div class="ttdeci">void ft_draw_map(t_mlx *mlx, t_map *map)</div><div class="ttdoc">Draw the map on the window (use it only at startup).</div><div class="ttdef"><b>Definition</b> <a href="#l00019">ft_draw_map.c:19</a></div></div>
+<div class="ttc" id="agroup__Main_html_gaa4b254cf8df8527dff8ecd057b280110"><div class="ttname"><a href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a></div><div class="ttdeci">struct s_mlx t_mlx</div><div class="ttdoc">Structure that handle the mlx instance.</div></div>
+<div class="ttc" id="agroup__Main_html_gaa6370cd7b08553210cd2ca45f421b122"><div class="ttname"><a href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a></div><div class="ttdeci">struct s_map t_map</div><div class="ttdoc">Structure that handle the map informations.</div></div>
 <div class="ttc" id="aso__long_8h_html"><div class="ttname"><a href="so__long_8h.html">so_long.h</a></div><div class="ttdoc">Header file for the so_long project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -170,7 +172,7 @@ $(function(){initNavTree('ft__draw__map_8c_source.html',''); initResizable(true)
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_57cec1657851407c6cc354408c5a57b6.html">draw</a></li><li class="navelem"><b>ft_draw_map.c</b></li>
-    <li class="footer">Generated on Sun Jan 19 2025 22:56:40 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Feb 16 2025 11:49:25 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

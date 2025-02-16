@@ -1,8 +1,8 @@
-.TH "C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.TH "inc/so_long.h" 3 "Sun Feb 16 2025 11:49:25" "So_long" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the so_long project\&.  
+inc/so_long.h \- Header file for the so_long project\&.  
 
 .SH SYNOPSIS
 .br
@@ -18,30 +18,39 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .ti -1c
 .RI "struct \fBs_circle\fP"
 .br
+.RI "Structure used to draw a circle\&. "
 .ti -1c
 .RI "struct \fBs_coordinates\fP"
 .br
+.RI "Structure used to store the coordinates (positive only)\&. "
 .ti -1c
 .RI "struct \fBs_img\fP"
 .br
+.RI "Structure used to store an image (buffer that contain image, and size)\&. "
 .ti -1c
 .RI "struct \fBs_map\fP"
 .br
+.RI "Structure that handle the map informations\&. "
 .ti -1c
 .RI "struct \fBs_map_size\fP"
 .br
+.RI "Structure used to store the map dimensions and metadata\&. "
 .ti -1c
 .RI "struct \fBs_mlx\fP"
 .br
+.RI "Structure that handle the mlx instance\&. "
 .ti -1c
 .RI "struct \fBs_rectangle\fP"
 .br
+.RI "Structure used to draw a rectangle\&. "
 .ti -1c
 .RI "struct \fBs_store\fP"
 .br
+.RI "Structure used to store the mlx and map structures\&. "
 .ti -1c
 .RI "struct \fBs_textures\fP"
 .br
+.RI "Strcuture that handle the textures of the game\&. "
 .in -1c
 .SS "Typedefs"
 
@@ -49,30 +58,39 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .ti -1c
 .RI "typedef struct \fBs_circle\fP \fBt_circle\fP"
 .br
+.RI "Structure used to draw a circle\&. "
 .ti -1c
 .RI "typedef struct \fBs_coordinates\fP \fBt_coordinates\fP"
 .br
+.RI "Structure used to store the coordinates (positive only)\&. "
 .ti -1c
 .RI "typedef struct \fBs_img\fP \fBt_img\fP"
 .br
+.RI "Structure used to store an image (buffer that contain image, and size)\&. "
 .ti -1c
 .RI "typedef struct \fBs_map\fP \fBt_map\fP"
 .br
+.RI "Structure that handle the map informations\&. "
 .ti -1c
 .RI "typedef struct \fBs_map_size\fP \fBt_map_size\fP"
 .br
+.RI "Structure used to store the map dimensions and metadata\&. "
 .ti -1c
 .RI "typedef struct \fBs_mlx\fP \fBt_mlx\fP"
 .br
+.RI "Structure that handle the mlx instance\&. "
 .ti -1c
 .RI "typedef struct \fBs_rectangle\fP \fBt_rectangle\fP"
 .br
+.RI "Structure used to draw a rectangle\&. "
 .ti -1c
 .RI "typedef struct \fBs_store\fP \fBt_store\fP"
 .br
+.RI "Structure used to store the mlx and map structures\&. "
 .ti -1c
 .RI "typedef struct \fBs_textures\fP \fBt_textures\fP"
 .br
+.RI "Strcuture that handle the textures of the game\&. "
 .in -1c
 .SS "Functions"
 
@@ -106,7 +124,7 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .br
 .RI "Find the position of a character in the map\&. "
 .ti -1c
-.RI "void \fBfree_map\fP (\fBt_map\fP *map, size_t len)"
+.RI "void \fBfree_map\fP (\fBt_map\fP *map, char **map_to_delete, size_t len)"
 .br
 .RI "Store the map in the map structure\&. "
 .ti -1c
@@ -146,7 +164,7 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .br
 .RI "Print the keycode of the pressed key\&. "
 .ti -1c
-.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map, char **map_to_print)"
 .br
 .RI "Print the map in the terminal\&. "
 .ti -1c
@@ -170,6 +188,10 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .br
 .RI "Function used to store the textures in the map structure\&. "
 .ti -1c
+.RI "char * \fBft_strdup\fP (const char *source)"
+.br
+.RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
+.ti -1c
 .RI "int \fBhandle_keypress\fP (int keycode, void *param)"
 .br
 .RI "Handle keypress events\&. "
@@ -180,7 +202,7 @@ C:/Users/Pierre/Documents/Git_Repos/So_long/inc/so_long.h \- Header file for the
 .ti -1c
 .RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
 .br
-.RI "Vérifie la validité de la carte\&. "
+.RI "Check the validity access of the map\&. Create a copy of the map to check if all the collectibles and the exit are accessible\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 

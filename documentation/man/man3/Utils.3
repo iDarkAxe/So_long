@@ -1,4 +1,4 @@
-.TH "Utils" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.TH "Utils" 3 "Sun Feb 16 2025 11:49:25" "So_long" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -20,6 +20,10 @@ Utils \- Utils functions
 .RI "\fBt_coordinates\fP \fBfind_position\fP (\fBt_map\fP *map, char character)"
 .br
 .RI "Find the position of a character in the map\&. "
+.ti -1c
+.RI "char * \fBft_strdup\fP (const char *source)"
+.br
+.RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -60,12 +64,30 @@ Find the position of a character in the map\&.
 .PP
 \fBReturns\fP
 .RS 4
-t_coordinates coordinates of the character\&. 
+\fBt_coordinates\fP coordinates of the character\&. 
 .RE
 .PP
 
 .PP
 Definition at line \fB39\fP of file \fBft_map_utils\&.c\fP\&.
+.SS "char * ft_strdup (const char * source)"
+
+.PP
+Create a copy of source into a new pointer NEEDS to be freed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsource\fP Source string\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* Pointer to the new string\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB16\fP of file \fBft_strdup\&.c\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for So_long from the source code\&.

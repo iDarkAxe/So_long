@@ -9,6 +9,6 @@ var searchData=
   ['s_5frectangle_6',['s_rectangle',['../structs__rectangle.html',1,'']]],
   ['s_5fstore_7',['s_store',['../structs__store.html',1,'']]],
   ['s_5ftextures_8',['s_textures',['../structs__textures.html',1,'']]],
-  ['so_5flong_9',['so_long',['../group___main.html#gac885de82e19860dd1fcea831175cbc7e',1,'so_long(int argc, char **argv):&#160;so_long.c'],['../group___main.html#gac885de82e19860dd1fcea831175cbc7e',1,'so_long(int argc, char **argv):&#160;so_long.c']]],
+  ['so_5flong_9',['so_long',['../group__Main.html#gac885de82e19860dd1fcea831175cbc7e',1,'so_long(int argc, char **argv):&#160;so_long.c'],['../group__Main.html#gac885de82e19860dd1fcea831175cbc7e',1,'so_long(int argc, char **argv):&#160;so_long.c']]],
   ['so_5flong_2eh_10',['so_long.h',['../so__long_8h.html',1,'']]]
 ];

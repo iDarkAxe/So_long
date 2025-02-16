@@ -6,7 +6,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "print", "dir_88882e61be18287799144fcdac847ecd.html", "dir_88882e61be18287799144fcdac847ecd" ],
     [ "utils", "dir_313caf1132e152dd9b58bea13a4052ca.html", "dir_313caf1132e152dd9b58bea13a4052ca" ],
     [ "ft_hooks.c", "ft__hooks_8c_source.html", null ],
-    [ "ft_settings.c", "ft__settings_8c.html", null ],
+    [ "ft_settings.c", "ft__settings_8c.html", "ft__settings_8c" ],
     [ "main.c", "main_8c_source.html", null ],
     [ "so_long.c", "so__long_8c_source.html", null ]
 ];

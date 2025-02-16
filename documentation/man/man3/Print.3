@@ -1,4 +1,4 @@
-.TH "Print" 3 "Sun Jan 19 2025 22:56:40" "So_long" \" -*- nroff -*-
+.TH "Print" 3 "Sun Feb 16 2025 11:49:25" "So_long" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,7 +21,7 @@ Print \- Print functions
 .br
 .RI "Print the keycode of the pressed key\&. "
 .ti -1c
-.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map, char **map_to_print)"
 .br
 .RI "Print the map in the terminal\&. "
 .ti -1c
@@ -59,11 +59,25 @@ Definition at line \fB29\fP of file \fBft_print_special\&.c\fP\&.
 .PP
 Print the keycode of the pressed key\&. 
 .PP
+\fBReturns\fP
+.RS 4
+ssize_t Number of moves\&. 
+.RE
+.PP
+
+.PP
 Definition at line \fB40\fP of file \fBft_print_special\&.c\fP\&.
-.SS "ssize_t ft_print_map (\fBt_map\fP * map)"
+.SS "ssize_t ft_print_map (\fBt_map\fP * map, char ** map_to_print)"
 
 .PP
 Print the map in the terminal\&. 
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t Number of moves\&. 
+.RE
+.PP
+
 .PP
 Definition at line \fB51\fP of file \fBft_print_special\&.c\fP\&.
 .SS "ssize_t ft_print_number_of_moves (size_t number_of_moves)"
@@ -71,11 +85,25 @@ Definition at line \fB51\fP of file \fBft_print_special\&.c\fP\&.
 .PP
 Print the number of moves\&. 
 .PP
+\fBReturns\fP
+.RS 4
+ssize_t Number of moves\&. 
+.RE
+.PP
+
+.PP
 Definition at line \fB67\fP of file \fBft_print_special\&.c\fP\&.
 .SS "ssize_t ft_print_position (int x, int y)"
 
 .PP
 Print the position of the mouse\&. 
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t Number of moves\&. 
+.RE
+.PP
+
 .PP
 Definition at line \fB16\fP of file \fBft_print_special\&.c\fP\&.
 .SS "ssize_t ft_putnbr_fd (long long n, int fd)"

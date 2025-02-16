@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['random_20functions_0',['Random functions',['../group___random.html',1,'']]]
+  ['random_20functions_0',['Random functions',['../group__Random.html',1,'']]]
 ];

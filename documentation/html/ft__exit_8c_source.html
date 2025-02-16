@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>So_long: C:/Users/Pierre/Documents/Git_Repos/So_long/src/utils/ft_exit.c Source File</title>
+<title>So_long: src/utils/ft_exit.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -122,9 +122,9 @@ $(function(){initNavTree('ft__exit_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group___main.html#ga07b41479ca5c945be270484799830a4b">   17</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="group___main.html#ga07b41479ca5c945be270484799830a4b">ft_exit</a>(t_mlx mlx, t_map *map)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group__Main.html#ga07b41479ca5c945be270484799830a4b">   17</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="group__Main.html#ga07b41479ca5c945be270484799830a4b">ft_exit</a>(<a class="code hl_typedef" href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a> mlx, <a class="code hl_typedef" href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a> *map)</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="group___main.html#gafbc9706d67bd3e6d303a6b329d353a3d">free_map_textures</a>(&amp;mlx, map);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="group__Main.html#gafbc9706d67bd3e6d303a6b329d353a3d">free_map_textures</a>(&amp;mlx, map);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span> (mlx.mlx_ptr != NULL &amp;&amp; mlx.win_ptr != NULL)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        mlx_destroy_window(mlx.mlx_ptr, mlx.win_ptr);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    mlx.win_ptr = NULL;</div>
@@ -134,8 +134,10 @@ $(function(){initNavTree('ft__exit_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    mlx.win_ptr = NULL;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
 </div>
-<div class="ttc" id="agroup___main_html_ga07b41479ca5c945be270484799830a4b"><div class="ttname"><a href="group___main.html#ga07b41479ca5c945be270484799830a4b">ft_exit</a></div><div class="ttdeci">void ft_exit(t_mlx mlx, t_map *map)</div><div class="ttdoc">Exit the program.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ft_exit.c:17</a></div></div>
-<div class="ttc" id="agroup___main_html_gafbc9706d67bd3e6d303a6b329d353a3d"><div class="ttname"><a href="group___main.html#gafbc9706d67bd3e6d303a6b329d353a3d">free_map_textures</a></div><div class="ttdeci">void free_map_textures(t_mlx *mlx, t_map *map)</div><div class="ttdoc">Free the textures from the map.</div><div class="ttdef"><b>Definition</b> <a href="ft__free_8c_source.html#l00045">ft_free.c:45</a></div></div>
+<div class="ttc" id="agroup__Main_html_ga07b41479ca5c945be270484799830a4b"><div class="ttname"><a href="group__Main.html#ga07b41479ca5c945be270484799830a4b">ft_exit</a></div><div class="ttdeci">void ft_exit(t_mlx mlx, t_map *map)</div><div class="ttdoc">Exit the program.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ft_exit.c:17</a></div></div>
+<div class="ttc" id="agroup__Main_html_gaa4b254cf8df8527dff8ecd057b280110"><div class="ttname"><a href="group__Main.html#gaa4b254cf8df8527dff8ecd057b280110">t_mlx</a></div><div class="ttdeci">struct s_mlx t_mlx</div><div class="ttdoc">Structure that handle the mlx instance.</div></div>
+<div class="ttc" id="agroup__Main_html_gaa6370cd7b08553210cd2ca45f421b122"><div class="ttname"><a href="group__Main.html#gaa6370cd7b08553210cd2ca45f421b122">t_map</a></div><div class="ttdeci">struct s_map t_map</div><div class="ttdoc">Structure that handle the map informations.</div></div>
+<div class="ttc" id="agroup__Main_html_gafbc9706d67bd3e6d303a6b329d353a3d"><div class="ttname"><a href="group__Main.html#gafbc9706d67bd3e6d303a6b329d353a3d">free_map_textures</a></div><div class="ttdeci">void free_map_textures(t_mlx *mlx, t_map *map)</div><div class="ttdoc">Free the textures from the map.</div><div class="ttdef"><b>Definition</b> <a href="ft__free_8c_source.html#l00045">ft_free.c:45</a></div></div>
 <div class="ttc" id="aso__long_8h_html"><div class="ttname"><a href="so__long_8h.html">so_long.h</a></div><div class="ttdoc">Header file for the so_long project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -143,7 +145,7 @@ $(function(){initNavTree('ft__exit_8c_source.html',''); initResizable(true); });
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li><li class="navelem"><b>ft_exit.c</b></li>
-    <li class="footer">Generated on Sun Jan 19 2025 22:56:40 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Feb 16 2025 11:49:25 for So_long by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>
