@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 18:10:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 12:15:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static void	free_map_textures_exit(t_mlx *mlx, t_map *map);
 static void	free_map_textures_player(t_mlx *mlx, t_map *map);
 
-void	free_map(t_map *map, size_t len)
+void	free_map(t_map *map, char **map_to_delete, size_t len)
 {
 	size_t	i;
 
@@ -26,17 +26,17 @@ void	free_map(t_map *map, size_t len)
 		return ;
 	while (i < (len + 1) && i < (map->height + 1))
 	{
-		if (map->map[i])
+		if (map_to_delete[i])
 		{
-			free(map->map[i]);
-			map->map[i] = NULL;
+			free(map_to_delete[i]);
+			map_to_delete[i] = NULL;
 		}
 		i++;
 	}
-	if (map->map != NULL)
+	if (map_to_delete != NULL)
 	{
-		free(map->map);
-		map->map = NULL;
+		free(map_to_delete);
+		map_to_delete = NULL;
 	}
 	free(map);
 	map = NULL;
@@ -63,7 +63,7 @@ void	free_map_textures(t_mlx *mlx, t_map *map)
 	}
 	free_map_textures_player(mlx, map);
 	free_map_textures_exit(mlx, map);
-	free_map(map, map->height);
+	free_map(map, map->map, map->height);
 }
 
 static void	free_map_textures_player(t_mlx *mlx, t_map *map)

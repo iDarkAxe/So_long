@@ -1,16 +1,17 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -O3
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
 NAME = so_long
 
 # Debugging flags
-CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
+CFLAGS_DEBUG = -Wall -Wextra -g3
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
-CC_DEBUG_CFLAGS += -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes -Wno-reserved-id-macro -Wno-documentation-deprecated-sync
+CC_DEBUG_CFLAGS = -g3 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
+CC_DEBUG_CFLAGS += -Wno-incompatible-pointer-types-discards-qualifiers -Wno-strict-prototypes
+CC_DEBUG_CFLAGS += -Wno-reserved-id-macro -Wno-documentation-deprecated-sync
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -41,9 +42,9 @@ P_LIB = lib/
 #############################################################################################
 # Headers
 INC = \
-	keys.h \
-	mlx.h \
+	ft_keys.h \
 	so_long.h \
+	ft_textures.h \
 	ft_print.h
 
 INC_MLX = \
@@ -69,7 +70,8 @@ UTILS = \
 	ft_map_utils.c \
 	ft_random.c \
 	ft_free.c \
-	ft_exit.c
+	ft_exit.c \
+	ft_strdup.c
 
 PLAYER = \
 	ft_player.c
@@ -83,19 +85,16 @@ LIBS = \
 	libso_long.a
 
 IMG = \
-	dragon_breath.xpm \
+	parquet_versailles.xpm \
 	end_portal_off.xpm \
 	end_portal_on.xpm \
-	parquet_versailles.xpm \
 	player_fl_end_portal_off.xpm \
 	player_fr_end_portal_off.xpm \
-	stone_bricks_v2.xpm \
+	stone_bricks_v2.xpm 
 
 IMG_UNUSED = \
-	exit.xpm \
-	player_fl.xpm \
-	settings.xpm \
-	stone_bricks.xpm
+	player.xpm \
+	settings.xpm
 
 #############################################################################################
 #                                                                                           #
@@ -127,11 +126,12 @@ INCS = \
 #                                          RULES                                            #
 #                                                                                           #
 #############################################################################################
-all: 
+all:
 	@$(MAKE) $(NAME)
 
 # Create so_long executable
-$(NAME): $(P_LIB)libmlx_Linux.a $(P_OBJ)main.o $(P_LIB)libso_long.a
+$(NAME): $(P_LIB)libmlx_Linux.a $(P_LIB)libso_long.a $(P_OBJ)main.o
+	@$(MAKE) $(P_LIB)libso_long.a
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -o $(NAME) $(P_OBJ)main.o -L$(P_LIB) -lso_long -lmlx_Linux -lXext -lX11
 
 # Create library used to create so_long executable
@@ -140,7 +140,7 @@ $(P_LIB)libso_long.a: $(OBJS)
 	ar -rcs $(P_LIB)libso_long.a $^
 
 # Custom rule to compilate all .c with there path
-$(P_OBJ)%.o: $(P_SRC)%.c
+$(P_OBJ)%.o: $(P_SRC)%.c Makefile
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -c $< -o $@
 
@@ -159,14 +159,17 @@ $(P_LIB)libmlx_Linux.a:
 #############################################################################################
 # Rules for clean up
 clean:
-	rm -rfd $(P_OBJ)
+	@rm -rfd $(P_OBJ)
+	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
+	@echo "$(Green)Cleaned $(P_OBJ) and minilibx-linux$(Color_Off)"
 
 clean-lib:
-	rm -rfd $(P_LIB)
+	@rm -rfd $(P_LIB)
+	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)"
 
 clean-bin:
-	rm -f $(NAME)
-	rm -f checker
+	@rm -f $(NAME)
+	@echo "$(Green)Cleaned $(NAME)$(Color_Off)"
 
 clean-obj:
 	@$(MAKE) clean
@@ -175,6 +178,7 @@ fclean:
 	@$(MAKE) clean-obj
 	@$(MAKE) clean-lib
 	@$(MAKE) clean-bin
+	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
 
 re:
 	@$(MAKE) fclean
@@ -253,4 +257,4 @@ On_Purple=\033[45m
 On_Cyan=\033[46m
 On_White=\033[47m
 
--include $(DEPS)% 
+-include $(DEPS)
