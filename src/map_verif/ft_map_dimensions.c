@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:20:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/20 10:39:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 13:21:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ t_map_size	dimensions_verif(char *map_name)
 	t_map_size	map;
 
 	map = (t_map_size){0, map_name, 0, 0, 0, 0};
+	if (map_name == NULL)
+	{
+		map.error_occured = 4;
+		return (map);
+	}
 	map.fd = open(map.map_name, O_RDONLY);
 	if (map.fd == -1)
 		map.error_occured = 2;
