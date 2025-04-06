@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/02/16 11:48:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 13:20:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@
  * @{
  */
 
- /**
-  * @brief Structure used to store an image (buffer that contain image, and size).
-  * 
-  */
+/**
+ * @brief Structure used to store an image (buffer that contain image,
+	and size).
+ *
+ */
 typedef struct s_img
 {
 	void			*ptr;
@@ -43,7 +44,7 @@ typedef struct s_img
 
 /**
  * @brief Strcuture that handle the textures of the game.
- * 
+ *
  */
 typedef struct s_textures
 {
@@ -60,7 +61,7 @@ typedef struct s_textures
 
 /**
  * @brief Structure that handle the mlx instance.
- * 
+ *
  */
 typedef struct s_mlx
 {
@@ -71,7 +72,7 @@ typedef struct s_mlx
 
 /**
  * @brief Structure used to store the coordinates (positive only).
- * 
+ *
  */
 typedef struct s_coordinates
 {
@@ -81,7 +82,7 @@ typedef struct s_coordinates
 
 /**
  * @brief Structure that handle the map informations.
- * 
+ *
  */
 typedef struct s_map
 {
@@ -97,8 +98,8 @@ typedef struct s_map
 
 /**
  * @brief Structure used to store the mlx and map structures.
- * 
-*/
+ *
+ */
 typedef struct s_store
 {
 	t_mlx			*mlx;
@@ -137,9 +138,9 @@ void				ft_exit(t_mlx mlx, t_map *map);
  * @{
  */
 
- /**
+/**
  * @brief Structure used to draw a rectangle.
- * 
+ *
  */
 typedef struct s_rectangle
 {
@@ -152,7 +153,7 @@ typedef struct s_rectangle
 
 /**
  * @brief Structure used to draw a circle.
- * 
+ *
  */
 typedef struct s_circle
 {
@@ -271,7 +272,7 @@ int					handle_keypress(int keycode, void *param);
 
 /**
  * @brief Structure used to store the map dimensions and metadata.
- * 
+ *
  */
 typedef struct s_map_size
 {

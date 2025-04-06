@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/20 18:29:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 13:25:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	so_long(int argc, char **argv)
 		return ((void)write(2, "Error\nAt check_borders\n", 23), -1);
 	mlx.mlx_ptr = mlx_init();
 	if (mlx.mlx_ptr == NULL)
-		return ((void)write(2, "Error\nInit MLX\n", 14), -1);
+		return (ft_exit(mlx, map), (void)write(2, "Error\nInit MLX\n", 14), -1);
 	if (ft_store_textures(&mlx, map) == NULL)
 		return ((void)free_map_textures(&mlx, map), -1);
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, map->textures.wall.width
